@@ -9,7 +9,7 @@ export default defineConfig({
   search: { provider: 'local' },
 
   // Sitemap (top-level)
-  sitemap: { hostname: 'https://blog.hanijahan.com' },
+  sitemap: { hostname: 'https://hanijahan.com' },
 
   // Theme config
   themeConfig: {

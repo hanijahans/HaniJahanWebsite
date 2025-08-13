@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://hanijahan.com/sitemap.xml
