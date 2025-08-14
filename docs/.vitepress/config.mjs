@@ -18,8 +18,15 @@ export default defineConfig({
       { text: 'Blog', link: '/blog/' },
       { text: 'Worldbuilding', link: '/worldbuilding/' },
       { text: 'Houdini', link: '/houdini/' },
-      { text: 'About', link: '/about/' }
+      { text: 'Work With Me', link: '/work-with-me/' } // single, focused CTA
+
     ],
+    
+    footer: {
+      message: '© Hani Jahan',
+      // optional footer links for secondary discovery
+      // Add these to your footer component or a custom footer block
+    },
 
     // Sidebar: map a section to a path prefix
     sidebar: {
@@ -40,4 +47,6 @@ export default defineConfig({
       { icon: 'github', link: 'https://github.com/hanijahans/HaniJahanWebsite' }
     ]
   }
+
+  
 })

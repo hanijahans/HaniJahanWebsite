@@ -1,0 +1,11 @@
+.hero-video{
+  margin-top: 1rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  max-width: 1920px;       /* keep it tidy */
+}
+.hero-video video{
+  width: 100%;
+  height: auto;
+  display: block;
+}
