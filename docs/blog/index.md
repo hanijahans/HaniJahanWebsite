@@ -3,7 +3,7 @@ title: Blog
 ---
 
 <script setup>
-import { data as posts } from '/@site/.vitepress/theme/posts.data'
+import { data as posts } from '@theme/posts.data'
 </script>
 
 # Blog
