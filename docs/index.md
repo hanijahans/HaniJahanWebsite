@@ -12,7 +12,7 @@ hero:
   actions:
     - theme: brand
       text: Contact Me
-      link: /work-with-me/
+      link: /contact/
 
 features:
   - title: Procedural Tools

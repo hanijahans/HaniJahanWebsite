@@ -18,7 +18,7 @@ export default defineConfig({
       { text: 'Blog', link: '/blog/' },
       { text: 'Worldbuilding', link: '/worldbuilding/' },
       { text: 'Houdini', link: '/houdini/' },
-      { text: 'Work With Me', link: '/work-with-me/' } // single, focused CTA
+      { text: 'Contact', link: '/contact/' } // single, focused CTA
 
     ],
     
@@ -44,7 +44,7 @@ export default defineConfig({
     },
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/hanijahans/HaniJahanWebsite' }
+      { icon: 'github', link: 'https://github.com/hanijahans/' }
     ]
   }
 
