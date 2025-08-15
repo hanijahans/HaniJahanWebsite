@@ -1,9 +1,42 @@
-// docs/.vitepress/theme/index.js
 import DefaultTheme from 'vitepress/theme'
+import { h } from 'vue'
+import { useData, useRoute } from 'vitepress'
+import './custom.css'
 
-// If you don't need any custom components yet, just extend the default:
+function DiscordCTA() {
+  return h('div', { class: 'discord-cta' }, [
+    h('p', { class: 'discord-title' }, '💬 Join the Conversation'),
+    h('p', null, [
+      'Want to chat, share your work, or connect with other creators? ',
+      h('a', { 
+        href: 'https://discord.gg/7pk5Je9bFT', 
+        target: '_blank',
+        style: 'text-decoration:none; display:inline-flex; align-items:center; gap:6px; font-weight:600;'
+      }, [
+        h('img', { 
+          src: 'https://cdn-icons-png.flaticon.com/512/5968/5968756.png', 
+          alt: 'Discord', 
+          width: '20', 
+          style: 'vertical-align:middle;' 
+        }),
+        'Join my Discord server'
+      ]),
+      '.'
+    ])
+  ])
+}
+
 export default {
-  extends: DefaultTheme,
-  // Optional: add client-side hooks / global components later
-  // enhanceApp({ app, router, siteData }) {}
+  ...DefaultTheme,
+  Layout() {
+    const { frontmatter } = useData()
+    const route = useRoute()
+    return h(DefaultTheme.Layout, null, {
+      'doc-after': () => {
+        if (frontmatter.value?.comments === false) return null
+        if (!route.path.startsWith('/blog/')) return null
+        return h(DiscordCTA)
+      }
+    })
+  }
 }

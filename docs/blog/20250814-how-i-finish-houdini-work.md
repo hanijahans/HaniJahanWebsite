@@ -118,4 +118,4 @@ Now, “done” isn’t a vague feeling — it’s a series of boxes I tick.
 Done just means meets criteria — not perfect.
 
 If you’ve built your own finalizer or have ideas to improve this one, I’d love to hear them.
-Comment below or find me on [X (Twitter)](https://x.com/HaniJahan) — let’s help each other finish. 
+come share your thoughts and connect with other creators in my [Discord community](https://discord.gg/7pk5Je9bFT),  or find me on [X (Twitter)](https://x.com/HaniJahan) — let’s help each other finish. 
