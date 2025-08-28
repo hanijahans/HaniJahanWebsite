@@ -16,6 +16,9 @@ export default defineConfig({
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Blog', link: '/blog/' },
+            { text: 'Products', items: [
+        { text: 'Unity Free Pack', link: '/products/unity/free-pack/' },
+      ]},
       { text: 'Worldbuilding', link: '/worldbuilding/' },
       { text: 'Houdini', link: '/houdini/' },
       { text: 'Contact', link: '/contact/' } // single, focused CTA
@@ -38,7 +41,15 @@ export default defineConfig({
           ]
         }
       ],
+      
       // add these later when pages exist
+      '/products/unity/free-pack/': [
+        { text: 'Overview', link: '/products/unity/free-pack/' },
+        { text: 'Documentation', link: '/products/unity/free-pack/docs' },
+        { text: 'What’s New', link: '/products/unity/free-pack/whats-new' },
+        { text: 'Support', link: '/products/unity/free-pack/support' }
+      ],
+
       '/worldbuilding/': [{ text: 'Worldbuilding', items: [] }],
       '/houdini/': [{ text: 'Houdini', items: [] }]
     },
