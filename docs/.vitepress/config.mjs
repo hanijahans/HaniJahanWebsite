@@ -43,13 +43,6 @@ export default defineConfig({
       ],
       
       // add these later when pages exist
-      '/products/unity/free-pack/': [
-        { text: 'Overview', link: '/products/unity/free-pack/' },
-        { text: 'Documentation', link: '/products/unity/free-pack/docs' },
-        { text: 'What’s New', link: '/products/unity/free-pack/whats-new' },
-        { text: 'Support', link: '/products/unity/free-pack/support' }
-      ],
-
       '/worldbuilding/': [{ text: 'Worldbuilding', items: [] }],
       '/houdini/': [{ text: 'Houdini', items: [] }]
     },
