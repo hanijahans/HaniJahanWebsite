@@ -94,10 +94,11 @@ Keep creating 💛
 
 
 **1.1.0 — Update**
-- Added auto-opening Welcome Window scripts with quick links to docs, support, and updates  
+- Added Welcome Window scripts with quick links to docs, support, and updates 
 - Updated all models → reduced poly counts for better performance  
 - Added 4 new block variations (expanded platform options)  
 - Added 1 new color palette variation (extra style choice)  
+- Improved model and prefab naming for clarity
 
 ---
 
