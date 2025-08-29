@@ -31,8 +31,8 @@ features:
 ---
 
 <!-- Custom video block (served from docs/public/hero/loop.mp4) -->
-<div class="hero-video">
+<!-- <div class="hero-video">
   <video autoplay loop muted playsinline preload="auto">
     <source src="/hero/loop.mp4" type="video/mp4" />
   </video>
-</div>
+</div> -->
