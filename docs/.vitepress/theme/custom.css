@@ -75,14 +75,21 @@
 }
 
 .home-hero-content {
-  max-width: min(52ch, 90vw);
-  color: var(--vp-c-white);
-  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
-}
+    --home-hero-text-tone: 1;
+  --home-hero-text-color: color-mix(
+    in srgb,
+    #000 calc((1 - var(--home-hero-text-tone)) * 100%),
+    #fff calc(var(--home-hero-text-tone) * 100%)
+  );
+  --home-hero-text-shadow: color-mix(
+    in srgb,
+    rgba(0, 0, 0, 0.45) calc(var(--home-hero-text-tone) * 100%),
+    rgba(255, 255, 255, 0.45) calc((1 - var(--home-hero-text-tone)) * 100%)
+  );
 
-.home-hero-content--light {
-  color: var(--vp-c-text-1);
-  text-shadow: none;
+  max-width: min(52ch, 90vw);
+  color: var(--home-hero-text-color);
+  text-shadow: 0 4px 24px var(--home-hero-text-shadow);
 }
 
 .home-hero-content h1 {

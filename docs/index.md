@@ -4,6 +4,7 @@ layout: page
 pageClass: home-full-hero
 title: false
 heroShade: 0.5
+heroTextTone: 0.2
 
 ---
 
@@ -11,7 +12,10 @@ heroShade: 0.5
   class="home-hero-image"
   :style="{ '--home-hero-shade-control': heroShade }"
 >
-  <div class="home-hero-content" :class="{ 'home-hero-content--light': heroShade < 0 }">
+  <div
+    class="home-hero-content"
+    :style="{ '--home-hero-text-tone': heroTextTone }"
+  >
     <h1>Worldbuilding &amp; Procedural Tools</h1>
   </div>
 </div>
@@ -29,6 +33,18 @@ const heroShade = computed(() => {
     return 0
   }
 
-    return Math.max(-1, Math.min(1, raw))
+  return Math.max(-1, Math.min(1, raw))
+})
+
+const fallbackTone = computed(() => (heroShade.value < 0 ? 0 : 1))
+
+const heroTextTone = computed(() => {
+  const raw = Number(frontmatter.value.heroTextTone ?? fallbackTone.value)
+
+  if (!Number.isFinite(raw)) {
+    return fallbackTone.value
+  }
+
+  return Math.max(0, Math.min(1, raw))
 })
 </script>
