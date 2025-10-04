@@ -6,6 +6,5 @@ layout: page
 
 # Portfolio
 
-<ClientOnly>
-  <PortfolioGrid />
-</ClientOnly>
+<PortfolioGrid />
+
