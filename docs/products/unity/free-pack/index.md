@@ -5,6 +5,22 @@ outline: deep
 
 # Free Modular 3D Platformer Pack – Stylized Blocks Prototyping Pack
 
+<!-- Add a header section with the link and preview images -->
+
+<p align="center">
+  <a href="https://assetstore.unity.com/packages/3d/environments/lowpoly-platformer-kit-free-modular-stylized-blocks-319018" target="_blank">
+    <img src="/public/products/assets/freepack_header.png" alt="Stylized Blocks Pack" width="800">
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://assetstore.unity.com/packages/3d/environments/lowpoly-platformer-kit-free-modular-stylized-blocks-319018" target="_blank">
+    <strong>🟢 View on Unity Asset Store</strong>
+  </a>
+</p>
+
+---
+
 This free modular 3D tile pack is designed for quick prototyping of platformers, puzzle games, and block-based environments. Every asset is lightweight, stylized, and optimized using a shared color palette texture and unified materials to keep performance high and draw calls low.
 
 - [Documentation](#documentation)
