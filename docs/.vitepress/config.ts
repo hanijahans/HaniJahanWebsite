@@ -16,14 +16,13 @@ export default defineConfig({
   title: 'Hani Jahan',
   description: 'Worldbuilding, Houdini, Unity, Unreal, GameDev, coffee',
 
-  // Search (top-level in VP v1)
-  search: { provider: 'local' },
-
   // Sitemap (top-level)
   sitemap: { hostname: 'https://hanijahan.com' },
 
   themeConfig: {
     nav: navItems,
+    
+    search: { provider: 'local' },
 
     footer: {
       message: '© Hani Jahan'
@@ -43,11 +42,4 @@ export default defineConfig({
 
     socialLinks: [{ icon: 'github', link: 'https://github.com/hanijahans/' }]
   },
-
-  head: [
-    ['meta', { property: 'og:title', content: 'Portfolio — Hani Jahan' }],
-    ['meta', { property: 'og:type', content: 'website' }],
-    ['meta', { property: 'og:image', content: '/portfolio/worldlattice-cover.jpg' }],
-    ['meta', { name: 'twitter:card', content: 'summary_large_image' }]
-  ]
 })
