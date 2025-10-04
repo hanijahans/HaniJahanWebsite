@@ -18,4 +18,4 @@ A procedural terrain generator designed for stylized diorama-style environments.
 - Procedural workflows
 - Engine export
 
-![Preview](./technical-systems.png)
+![Preview](/portfolio/technical-systems.png)

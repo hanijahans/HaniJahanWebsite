@@ -9,7 +9,7 @@ outline: deep
 
 <p align="center">
   <a href="https://assetstore.unity.com/packages/3d/environments/lowpoly-platformer-kit-free-modular-stylized-blocks-319018" target="_blank">
-    <img src="/public/products/assets/freepack_header.png" alt="Stylized Blocks Pack" width="800">
+    <img src="/products/assets/freepack_header.png" alt="Stylized Blocks Pack" width="800">
   </a>
 </p>
 
