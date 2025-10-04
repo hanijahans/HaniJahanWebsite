@@ -6,9 +6,9 @@ hero:
   name: "Hani Jahan"
   text: "Procedural Worldbuilding & Tools"
   tagline: Designing living worlds with Houdini, Unity, and Unreal
-  image:
-    src: /hero/home.jpg
-    alt: Procedural world loop
+#  image:
+#    src: /hero/home.jpg
+#    alt: Procedural world loop
   actions:
     - theme: brand
       text: Contact Me
