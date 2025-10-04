@@ -89,7 +89,7 @@
 
   max-width: min(52ch, 90vw);
   color: var(--home-hero-text-color);
-  text-shadow: 0 4px 24px var(--home-hero-text-shadow);
+  text-shadow: 1 4px 1px var(--home-hero-text-shadow);
 }
 
 .home-hero-content h1 {

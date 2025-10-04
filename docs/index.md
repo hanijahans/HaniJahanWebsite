@@ -4,7 +4,7 @@ layout: page
 pageClass: home-full-hero
 title: false
 heroShade: 0.5
-heroTextTone: 0.2
+heroTextTone: 0.6
 
 ---
 
