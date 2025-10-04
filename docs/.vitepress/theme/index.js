@@ -1,6 +1,7 @@
 import DefaultTheme from 'vitepress/theme'
 import { h } from 'vue'
 import { useData, useRoute } from 'vitepress'
+import PortfolioGrid from './components/PortfolioGrid.vue'
 import './custom.css'
 
 function DiscordCTA() {
@@ -38,5 +39,11 @@ export default {
         return h(DiscordCTA)
       }
     })
+  },
+  enhanceApp({ app }) {
+    if (typeof DefaultTheme.enhanceApp === 'function') {
+      DefaultTheme.enhanceApp({ app })
+    }
+    app.component('PortfolioGrid', PortfolioGrid)
   }
 }

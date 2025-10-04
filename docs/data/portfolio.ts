@@ -16,7 +16,7 @@ export const portfolio: PortfolioItem[] = [
     role: "Technical Artist / Tools",
     year: "2025",
     tags: ["Houdini", "Procedural", "Terrain", "Tools"],
-    cover: "/portfolio/procedural-terrain.jpg",
+    cover: "/portfolio/procedural-terrain.png",
     url: "/posts/procedural-terrain", // or external if you prefer
     description:
       "Terrain generator for flexible world layout and stylized ecosystems: flattening, erosion-based detail, and slope-aware scattering for roads, cities, and natural flow."
@@ -27,7 +27,7 @@ export const portfolio: PortfolioItem[] = [
     role: "Technical Artist / Tools",
     year: "2025",
     tags: ["Houdini", "Vegetation", "Scattering", "NPR"],
-    cover: "/portfolio/procedural-vegetation.jpg",
+    cover: "/portfolio/procedural-vegetation.png",
     url: "/posts/procedural-vegetation",
     description:
       "Fully procedural vegetation tools with control over variation and instancing. Scales from dense forests to decorative foliage; built for fast iteration and visual diversity."
@@ -38,21 +38,10 @@ export const portfolio: PortfolioItem[] = [
     role: "Technical Artist / HDA",
     year: "2025",
     tags: ["Houdini", "HDA", "Architecture", "Modular"],
-    cover: "/portfolio/modular-building.jpg",
+    cover: "/portfolio/modular-building.png",
     url: "/posts/modular-building",
     description:
       "Generates structures from simple grids: customizable facades, floors, roof styles, and material variation. Game-ready, modular, and iteration-friendly."
-  },
-  {
-    title: "Engine Integration",
-    subtitle: "Unreal import, testing, lighting",
-    role: "Technical Artist",
-    year: "2025",
-    tags: ["Unreal", "Real-time", "Optimization"],
-    cover: "/portfolio/engine-integration.jpg",
-    url: "/posts/engine-integration",
-    description:
-      "Importing modular assets into Unreal to convert procedural tools into playable scenes—optimized for performance and real-time workflow."
   },
   {
     title: "Visual Foundations",
@@ -71,7 +60,7 @@ export const portfolio: PortfolioItem[] = [
     role: "Tech Art / R&D",
     year: "2025",
     tags: ["Algorithms", "WFC", "Space Colonization", "Procedural"],
-    cover: "/portfolio/technical-systems.jpg",
+    cover: "/portfolio/technical-systems.png",
     url: "/posts/technical-systems",
     description:
       "Custom procedural logic: Wave Function Collapse for tile-based layouts; Space Colonization for stylized trees/veins in NPR-style worlds."
@@ -82,7 +71,7 @@ export const portfolio: PortfolioItem[] = [
     role: "Tools Engineer",
     year: "2025",
     tags: ["Houdini", "HDAs", "UX for Artists"],
-    cover: "/portfolio/artist-friendly-toolset.jpg",
+    cover: "/portfolio/artist-friendly-toolset.png",
     url: "/posts/artist-friendly-toolset",
     description:
       "A suite of HDAs for environment artists: measurement systems, slope detectors, scatter controls, and layout visualizers—usable by technical and non-technical teammates."
