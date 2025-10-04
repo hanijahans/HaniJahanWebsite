@@ -1,4 +1,15 @@
-import { defineConfig } from 'vitepress'
+import { DefaultTheme, defineConfig } from 'vitepress'
+
+const navItems: DefaultTheme.NavItem[] = [
+  { text: 'Home', link: '/' },
+  { text: 'Portfolio', link: '/portfolio/' },
+  { text: 'Blog', link: '/blog/' },
+  {
+    text: 'Products',
+    items: [{ text: 'Unity Free Pack', link: '/products/unity/free-pack/' }]
+  },
+  { text: 'Contact', link: '/contact/' }
+]
 
 export default defineConfig({
   // Site
@@ -12,16 +23,7 @@ export default defineConfig({
   sitemap: { hostname: 'https://hanijahan.com' },
 
   themeConfig: {
-    nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Portfolio', link: '/portfolio/' },
-      { text: 'Blog', link: '/blog/' },
-      {
-        text: 'Products',
-        items: [{ text: 'Unity Free Pack', link: '/products/unity/free-pack/' }]
-      },
-      { text: 'Contact', link: '/contact/' }
-    ],
+    nav: navItems,
 
     footer: {
       message: '© Hani Jahan'
