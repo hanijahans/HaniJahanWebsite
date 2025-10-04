@@ -15,7 +15,7 @@ const navItems: DefaultTheme.NavItem[] = [
 export default defineConfig({
   // Site
   title: 'Hani Jahan',
-  description: 'Worldbuilding, Houdini, Unity, Unreal, GameDev, coffee',
+  description: 'Worldbuilding, Houdini, Unity, Unreal, GameDev, Coffee',
 
   // Sitemap (top-level)
   sitemap: { hostname: 'https://hanijahan.com' },
@@ -23,7 +23,7 @@ export default defineConfig({
   themeConfig: {
     nav: navItems,
     
-    search: { provider: 'local' },
+    search: undefined, //{ provider: 'local' },
 
     footer: {
       message: '© Hani Jahan'
