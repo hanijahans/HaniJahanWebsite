@@ -1,13 +1,39 @@
 <script setup lang="ts">
+import { computed, reactive } from 'vue'
 import { portfolio } from '/data/portfolio'
+
 const items = portfolio
+
+const widths = reactive<Record<number, number>>({})
+
+const cardStyles = computed(() =>
+  items.map((_, index) =>
+    widths[index] ? { '--card-width': `${widths[index]}px` } : {}
+  )
+)
+
+const handleImageLoad = (index: number, event: Event) => {
+  const target = event.target as HTMLImageElement | null
+  if (!target?.naturalWidth) return
+  widths[index] = target.naturalWidth
+}
 </script>
 
 <template>
   <div class="portfolio-grid">
-    <div v-for="(it, i) in items" :key="i" class="card">
+    <div
+      v-for="(it, i) in items"
+      :key="i"
+      class="card"
+      :style="cardStyles[i]"
+    >
       <a v-if="it.url" :href="it.url" class="cover">
-        <img :src="it.cover" :alt="it.title" loading="lazy" />
+        <img
+          :src="it.cover"
+          :alt="it.title"
+          loading="lazy"
+          @load="handleImageLoad(i, $event)"
+        />
       </a>
       <div class="body">
         <h3 class="title">
@@ -40,9 +66,18 @@ const items = portfolio
   overflow: hidden;
   background: var(--vp-c-bg);
   transition: transform .15s ease, box-shadow .15s ease;
+  width: min(var(--card-width, 320px), 100%);
+  flex: 0 0 auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 .card:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,.08); }
-.cover img { display:block; width:100%; height:180px; object-fit:cover; }
+.cover img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 .body { padding: 12px 14px; }
 .title { margin:0 0 4px; font-size: 1rem; line-height:1.2; }
 .subtitle { margin:0 0 6px; opacity:.8; }
