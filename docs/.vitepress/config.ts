@@ -20,8 +20,6 @@ export default defineConfig({
         text: 'Products',
         items: [{ text: 'Unity Free Pack', link: '/products/unity/free-pack/' }]
       },
-      { text: 'Worldbuilding', link: '/worldbuilding/' },
-      { text: 'Houdini', link: '/houdini/' },
       { text: 'Contact', link: '/contact/' }
     ],
 
@@ -39,10 +37,6 @@ export default defineConfig({
           items: [{ text: 'All posts', link: '/blog/' }]
         }
       ],
-
-      // add these later when pages exist
-      '/worldbuilding/': [{ text: 'Worldbuilding', items: [] }],
-      '/houdini/': [{ text: 'Houdini', items: [] }]
     },
 
     socialLinks: [{ icon: 'github', link: 'https://github.com/hanijahans/' }]
