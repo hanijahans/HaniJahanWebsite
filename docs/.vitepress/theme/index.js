@@ -32,6 +32,12 @@ export default {
   Layout() {
     const { frontmatter } = useData()
     const route = useRoute()
+    const isDraft = frontmatter.value?.draft
+    const isBlogIndex = route.path === '/blog/'
+
+    if (isDraft && !isBlogIndex) {
+      return h(DefaultTheme.NotFound)
+    }
     return h(DefaultTheme.Layout, null, {
       'doc-after': () => {
         if (frontmatter.value?.comments === false) return null
