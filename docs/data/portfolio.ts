@@ -12,10 +12,10 @@ export type PortfolioItem = {
 export const portfolio: PortfolioItem[] = [
   {
     title: "Procedural Terrain System",
-    subtitle: "Diorama-style terrain generator",
-    role: "Technical Artist / Tools",
-    year: "2025",
-    tags: ["Houdini", "Procedural", "Terrain", "Tools"],
+    subtitle: " ",
+    role: "Technical Artist",
+    year: "2024",
+    tags: ["Houdini", "Procedural", "Tools", "Terrain"],
     cover: "/portfolio/procedural-terrain.png",
     url: "/portfolio/procedural-terrain", // or external if you prefer
     description:
@@ -23,10 +23,10 @@ export const portfolio: PortfolioItem[] = [
   },
   {
     title: "Procedural Vegetation Toolkit",
-    subtitle: "Rule-based variation & instancing",
-    role: "Technical Artist / Tools",
-    year: "2025",
-    tags: ["Houdini", "Vegetation", "Scattering", "NPR"],
+    subtitle: " ",
+    role: "Technical Artist",
+    year: "2024",
+    tags: ["Houdini", "Procedural", "Tools", "Vegetation"],
     cover: "/portfolio/procedural-vegetation.png",
     url: "/portfolio/procedural-vegetation",
     description:
@@ -34,10 +34,10 @@ export const portfolio: PortfolioItem[] = [
   },
   {
     title: "Modular Building Generator",
-    subtitle: "Townhouse/apartment HDA",
-    role: "Technical Artist / HDA",
-    year: "2025",
-    tags: ["Houdini", "HDA", "Architecture", "Modular"],
+    subtitle: " ",
+    role: "Technical Artist",
+    year: "2024",
+    tags: ["Houdini", "Procedural", "Tools", "Modular"],
     cover: "/portfolio/modular-building.png",
     url: "/portfolio/modular-building",
     description:
@@ -47,19 +47,18 @@ export const portfolio: PortfolioItem[] = [
     title: "Visual Foundations",
     subtitle: "Composition, color, lighting studies",
     role: "Environment Artist",
-    year: "2025",
-    tags: ["Composition", "Color", "Lighting", "Storytelling"],
+    tags: ["Composition", "Lighting", "Storytelling"],
     cover: "/portfolio/visual-foundations.jpg",
     url: "/portfolio/visual-foundations",
     description:
       "Ongoing study and application of visual storytelling, color theory, composition, and lighting—applied to real-time environments."
   },
   {
-    title: "Technical Systems — Algorithms",
-    subtitle: "WFC & Space Colonization",
+    title: "Algorithmic Design",
+    subtitle: " ",
     role: "Tech Art / R&D",
-    year: "2025",
-    tags: ["Algorithms", "WFC", "Space Colonization", "Procedural"],
+    year: "2024",
+    tags: ["Algorithms", "Procedural", "WFC", "Space Colonization"],
     cover: "/portfolio/technical-systems.png",
     url: "/portfolio/technical-systems",
     description:
@@ -67,10 +66,10 @@ export const portfolio: PortfolioItem[] = [
   },
   {
     title: "Artist-Friendly Toolset",
-    subtitle: "Measurement, slope, scatter, layout",
-    role: "Tools Engineer",
-    year: "2025",
-    tags: ["Houdini", "HDAs", "UX for Artists"],
+    subtitle: " ",
+    role: "Technical Artist",
+    year: "2024",
+    tags: ["Houdini", "Procedural", "Tools"],
     cover: "/portfolio/artist-friendly-toolset.png",
     url: "/portfolio/artist-friendly-toolset",
     description:
