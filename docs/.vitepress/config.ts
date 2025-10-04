@@ -8,6 +8,7 @@ const navItems: DefaultTheme.NavItem[] = [
     text: 'Products',
     items: [{ text: 'Unity Free Pack', link: '/products/unity/free-pack/' }]
   },
+  { text: 'Worldbuilding', link: '/worldbuilding/' },
   { text: 'Contact', link: '/contact/' }
 ]
 
@@ -38,6 +39,8 @@ export default defineConfig({
           items: [{ text: 'All posts', link: '/blog/' }]
         }
       ],
+
+      '/worldbuilding/': [{ text: 'Worldbuilding', items: [] }],
     },
 
     socialLinks: [{ icon: 'github', link: 'https://github.com/hanijahans/' }]
