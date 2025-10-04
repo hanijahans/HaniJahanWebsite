@@ -12,7 +12,7 @@ heroShade: 0.5
   :style="{ '--home-hero-shade-control': heroShade }"
 >
   <div class="home-hero-content" :class="{ 'home-hero-content--light': heroShade < 0 }">
-    <h1>Procedural Worldbuilding &amp; Tools</h1>
+    <h1>Worldbuilding &amp; Procedural Tools</h1>
   </div>
 </div>
 
