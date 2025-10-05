@@ -109,5 +109,58 @@
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
-  border: 0;
+  border: 0;  
+}
+
+:root {
+  --hjd-logo-size: clamp(24px, 3vw, 32px);
+  --vp-nav-logo-height: var(--hjd-logo-size);
+}
+
+.VPNavBarTitle {
+  display: flex;
+  align-items: center;
+}
+
+.VPNavBarTitle .title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: var(--vp-nav-height);
+}
+
+.VPNavBarTitle .logo {
+  display: inline-flex;
+  align-items: center;
+  height: var(--hjd-logo-size);
+  max-height: var(--hjd-logo-size);
+}
+
+.VPNavBarTitle .logo img,
+.VPNavBarTitle .logo svg {
+  max-height: var(--hjd-logo-size);
+  width: auto;
+}
+
+.VPNavBarTitle .title span {
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  opacity: 0;
+  max-width: 0;
+  overflow: hidden;
+  transition: opacity 0.2s ease, max-width 0.2s ease;
+}
+
+.VPNavBarTitle .title:hover span,
+.VPNavBarTitle .title:focus-visible span {
+  opacity: 1;
+  max-width: 200px;
+}
+
+@media (hover: none) {
+  .VPNavBarTitle .title span {
+    opacity: 1;
+    max-width: 200px;
+  }
 }

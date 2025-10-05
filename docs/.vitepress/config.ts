@@ -14,19 +14,20 @@ const navItems: DefaultTheme.NavItem[] = [
 
 export default defineConfig({
   // Site
-  title: 'Hani Jahan',
+  title: 'Hani Jahan Design',
   description: 'Worldbuilding, Houdini, Unity, Unreal, GameDev, Coffee',
 
   // Sitemap (top-level)
   sitemap: { hostname: 'https://hanijahan.com' },
 
   themeConfig: {
+    logo: '/hjd/hjd-logo.png',
     nav: navItems,
     
     search: undefined, //{ provider: 'local' },
 
     footer: {
-      message: '© Hani Jahan'
+      message: '© Hani Jahan Design'
       // optional footer links for secondary discovery
       // Add these to your footer component or a custom footer block
     },
