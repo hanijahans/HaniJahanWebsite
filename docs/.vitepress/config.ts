@@ -16,6 +16,7 @@ export default defineConfig({
   // Site
   title: 'Hani Jahan Design',
   description: 'Worldbuilding, Houdini, Unity, Unreal, GameDev, Coffee',
+  appearance: 'dark',
 
   // Sitemap (top-level)
   sitemap: { hostname: 'https://hanijahan.com' },
