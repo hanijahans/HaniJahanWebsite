@@ -158,6 +158,36 @@
   max-width: 200px;
 }
 
+.VPFooter .message {
+  display: flex;
+  justify-content: center;
+}
+
+.footer-brand {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  color: inherit;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-logo {
+  width: 18px;
+  height: 18px;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 0 0 rgba(0, 0, 0, 0));
+  transition: filter 0.4s ease;
+}
+
+.footer-brand:hover .footer-logo,
+.footer-brand:focus-visible .footer-logo {
+  filter: drop-shadow(0 0 8px rgba(255, 129, 109, 0.55));
+}
+
 @media (hover: none) {
   .VPNavBarTitle .title span {
     opacity: 1;

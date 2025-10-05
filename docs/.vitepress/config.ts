@@ -28,9 +28,9 @@ export default defineConfig({
     search: undefined, //{ provider: 'local' },
 
     footer: {
-      message: '© Hani Jahan Design'
-      // optional footer links for secondary discovery
-      // Add these to your footer component or a custom footer block
+      // message: '© Hani Jahan Design'
+      message:
+        '<span class="footer-brand"><img class="footer-logo" src="/hjd/hjd-logo.png" alt="Hani Jahan Design logo" />© 2025 Hani Jahan Design</span>'
     },
 
     // Sidebar: map a section to a path prefix
