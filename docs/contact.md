@@ -32,4 +32,4 @@ This ensures your request is tracked and answered quickly
 
 Get sneak peeks, dev updates, and experimental worlds — straight from the source.
 
-<div class="ml-embedded" data-form="FhCHfr"></div>
+<MailerLiteForm form-id="FhCHfr" />

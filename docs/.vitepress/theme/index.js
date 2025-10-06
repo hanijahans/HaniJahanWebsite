@@ -2,47 +2,9 @@ import DefaultTheme from 'vitepress/theme'
 import { h } from 'vue'
 import { useData, useRoute } from 'vitepress'
 import PortfolioGrid from './components/PortfolioGrid.vue'
+import MailerLiteForm from './components/MailerLiteForm.vue'
+import { loadMailerLite } from './utils/mailerlite'
 import './custom.css'
-
-let mailerLiteScriptLoaded = false
-
-function loadMailerLite() {
-  if (typeof window === 'undefined') return
-
-  if (typeof window.ml === 'function') {
-    window.ml('account', '1722221')
-    mailerLiteScriptLoaded = true
-    return
-  }
-
-  if (mailerLiteScriptLoaded) return
-
-  const w = window
-  const d = document
-  const f = 'ml'
-
-  w[f] =
-    w[f] ||
-    function () {
-      ;(w[f].q = w[f].q || []).push(arguments)
-    }
-
-  const script = d.createElement('script')
-  script.async = 1
-  script.src = 'https://assets.mailerlite.com/js/universal.js'
-  const firstScript = d.getElementsByTagName('script')[0]
-
-  if (firstScript && firstScript.parentNode) {
-    firstScript.parentNode.insertBefore(script, firstScript)
-  } else if (d.head) {
-    d.head.appendChild(script)
-  } else if (d.body) {
-    d.body.appendChild(script)
-  }
-
-  w.ml('account', '1722221')
-  mailerLiteScriptLoaded = true
-}
 
 function DiscordCTA() {
   return h('div', { class: 'discord-cta' }, [
@@ -88,10 +50,12 @@ export default {
   },
   enhanceApp({ app, router }) {
     if (typeof DefaultTheme.enhanceApp === 'function') {
-      DefaultTheme.enhanceApp({ app })
+      DefaultTheme.enhanceApp({ app, router })
     }
     app.component('PortfolioGrid', PortfolioGrid)
-        if (typeof window !== 'undefined') {
+    app.component('MailerLiteForm', MailerLiteForm)
+
+    if (typeof window !== 'undefined') {
       loadMailerLite()
       if (router && typeof router.onAfterRouteChanged === 'function') {
         router.onAfterRouteChanged(() => {
