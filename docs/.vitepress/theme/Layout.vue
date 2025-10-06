@@ -1,0 +1,21 @@
+<template>
+  <Layout>
+    <template #footer>
+      <div class="ml-embedded" data-form="FhCHfr"></div>
+    </template>
+  </Layout>
+</template>
+
+<script setup>
+// no JS changes needed
+</script>
+
+<!-- MailerLite Universal -->
+<script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '1722221');
+</script>
+<!-- End MailerLite Universal -->

@@ -25,3 +25,11 @@ Need help with one of my GitHub tools?
 - Include the **tool's name** in the title.
 
 This ensures your request is tracked and answered quickly
+
+---
+
+# Newsletter
+
+Get sneak peeks, dev updates, and experimental worlds — straight from the source.
+
+<div class="ml-embedded" data-form="FhCHfr"></div>
