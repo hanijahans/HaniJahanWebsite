@@ -2,8 +2,6 @@ import DefaultTheme from 'vitepress/theme'
 import { h } from 'vue'
 import { useData, useRoute } from 'vitepress'
 import PortfolioGrid from './components/PortfolioGrid.vue'
-import MailerLiteForm from './components/MailerLiteForm.vue'
-import { loadMailerLite } from './utils/mailerlite'
 import './custom.css'
 
 function DiscordCTA() {
@@ -53,15 +51,5 @@ export default {
       DefaultTheme.enhanceApp({ app, router })
     }
     app.component('PortfolioGrid', PortfolioGrid)
-    app.component('MailerLiteForm', MailerLiteForm)
-
-    if (typeof window !== 'undefined') {
-      loadMailerLite()
-      if (router && typeof router.onAfterRouteChanged === 'function') {
-        router.onAfterRouteChanged(() => {
-          loadMailerLite()
-        })
-      }
-    }
   }
 }
