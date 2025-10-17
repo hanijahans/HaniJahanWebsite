@@ -18,7 +18,7 @@ date: 2025-10-16
 
 
 ## 1. What is WorldLattice?
-![WorldLattice Generation Preview](assets/images/git-must/worldlattice/worldlattice-preview01.png)
+
 WorldLattice is a modular, constraint-based generation engine.
 My goal: Give indie and small-studio devs a way to conjure rich, story-worthy worlds without having to hand-craft every tile or rule themselves.
 
