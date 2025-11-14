@@ -17,16 +17,16 @@ date: 2025-10-16
 # 🌍 WorldLattice Devlog #1 — Building a World-Building Tool
 
 
-## 1. What is WorldLattice?
+## What is WorldLattice?
 
 WorldLattice is a modular, constraint-based generation engine.
 My goal: Give indie and small-studio devs a way to conjure rich, story-worthy worlds without having to hand-craft every tile or rule themselves.
 
-**pain → solution**
+**pain → solution**  
 I love the pain → solution framework, and I'll talk about it in another post, but let’s look at the specific pain I’m trying to address. One of my lifelong passions has been world-building. But hand-painting every tile in Unity Tilemaps and setting up adjacency rules? It’s slow, it’s not fun, and it kills momentum when you just want to try ideas fast. I saw friends and fellow devs waste time searching for the right tiles or getting stuck building worlds manually. Since I already sell tile packs on the Unity Asset Store ([click here](https://assetstore.unity.com/publishers/115965?utm_source=hanijahan.com&utm_medium=blog&utm_campaign=worldlattice-devlog01)), I thought: **Why not make a tool that actually knows how to use them?**
 
 
-## 2. **The core architecture:**  
+## **The core architecture:**  
 WorldLattice has two main phases:
 1. **Generation** (using CSP and WFC-like algorithms)
 2. **Awakening/Simulation** (a future layer that simulates growth and change—paused for now; focus is on generation)
@@ -45,7 +45,7 @@ I already had my own tile sets (grab them [here](https://assetstore.unity.com/pu
 - **Data Visualization:**  
     I’m a data visualization nerd. The tool includes built-in visualizations to help you actually see and debug how the generator is thinking, not just the output.
 
-## 3. What’s Next
+## What’s Next
 
 Right now, WorldLattice is focused on stable, reliable world generation. Next, I’ll add more simulation and “awakening” features—making worlds that can grow, change, and come alive over time. But first, the basics have to feel _solid_.
 
