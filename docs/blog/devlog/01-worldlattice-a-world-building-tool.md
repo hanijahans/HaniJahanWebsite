@@ -18,8 +18,13 @@ date: 2025-10-16
 
 
 ## What is WorldLattice?
+<div style="display:block; margin-bottom:10px;">
+  <img src="./devlog01-screenshot01-20250919.png" width="500" />
+</div>
 
-WorldLattice is a modular, constraint-based generation engine.
+“This is WorldLattice: a fast, rule-driven world generation tool built inside Unity.”
+
+WorldLattice is a modular, constraint-based generation engine.  
 My goal: Give indie and small-studio devs a way to conjure rich, story-worthy worlds without having to hand-craft every tile or rule themselves.
 
 **pain → solution**  
@@ -28,12 +33,14 @@ I love the pain → solution framework, and I'll talk about it in another post, 
 
 ## **The core architecture:**  
 WorldLattice has two main phases:
-1. **Generation** (using CSP and WFC-like algorithms)
-2. **Awakening/Simulation** (a future layer that simulates growth and change—paused for now; focus is on generation)
+1. **Generation**  
+Inspiring by Constraint Satisfaction Problems (CSPs) and Wave Function Collapse (WFC) algorithms
+2. **Awakening/Simulation**  
+A future layer that simulates growth and change—paused for now; focus is on generation
 
 Right now, I’m keeping the focus brutally tight: deliver a tool that makes world generation easy and stable, then expand. Making it “alive” comes after the core works for real users.
 
-I already had my own tile sets (grab them [here](https://assetstore.unity.com/publishers/115965?utm_source=hanijahan.com&utm_medium=blog&utm_campaign=worldlattice-devlog01)), so my main obsession became the pipeline and the logic:
+I already had my own tile sets, so my main obsession became the pipeline and the logic:
 - **Inspired by both Simple Tiled and Overlapping Pattern models in WFC:**
     - **Tile-based rules** (hand-authored, symmetry-safe, easy for manual design)
     - **Pattern-based rules** (extracting patterns from sample worlds, learning adjacency automatically)

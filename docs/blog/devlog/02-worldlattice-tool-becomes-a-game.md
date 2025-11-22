@@ -42,6 +42,16 @@ Not a big game — more like a strange little creature made of rules and possibi
 
 ### **The Core Loop: You Paint the Seed, The World Grows**
 
+<div style="display:block; margin-bottom:10px;">
+  <img src="./devlog02-screenshot01-251110.png" width="500" />
+  <img src="./devlog02-screenshot02-251110.png" width="500" />
+</div>
+
+**Left: You paint a tiny sample world.  
+Right: WorldLattice grows it into a full landscape.**  
+
+**This is the entire core loop of WorldLattice.**
+
 You pick up a brush.  
 You paint a small “sample world” using the built-in tiles.  
 Then you press generate.
