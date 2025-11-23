@@ -3,41 +3,29 @@ layout: page
 pageClass: worldlattice-hero-page
 title: false
 heroShade: 0.4        # tweak darkness if needed
-heroTextTone: 0.7     # how light/dark the text should be
+heroTextTone: 0.7     # how light/dark the text should be 
+# The "4-Space" Rule: In standard Markdown, there is a strict rule: If you leave a blank line and then indent text by 4 spaces (or 1 tab), that text is treated as a Code Block.
 ---
 
-<div
-  class="home-hero-image"
-  :style="{ '--home-hero-shade-control': heroShade }"
->
-  <div
-    class="home-hero-content"
-    :style="{ '--home-hero-text-tone': heroTextTone }"
-  >
-    <h1>WorldLattice</h1>
-    <p>
-      A fast, rule-driven worldbuilding toy for painting samples and generating
-      tiny worlds.
-    </p>
+<div class="home-hero-image" :style="{ '--home-hero-shade-control': heroShade }">
+<div class="home-hero-content" :style="{ '--home-hero-text-tone': heroTextTone }">
+<h1>WorldLattice</h1>
+<p>
+A fast, rule-driven worldbuilding toy for painting samples and generating
+tiny worlds.
+</p>
 
-    <div class="hero-buttons">
-      <a
-        class="hero-button primary"
-        href="https://store.steampowered.com/app/XXXXXX/WorldLattice/"
-        target="_blank"
-        rel="noreferrer"
-      >
-        Wishlist on Steam
-      </a>
+<div class="hero-buttons">
+<a class="hero-button primary" href="https://hanijahan.com/" target="_blank" rel="noreferrer">
+Wishlist on Steam
+</a>
 
-      <a
-        class="hero-button secondary"
-        href="/blog/devlog/01-worldlattice-a-world-building-tool.html"
-      >
-        Read the first devlog
-      </a>
-    </div>
-  </div>
+<a class="hero-button secondary" href="/blog/">
+Devlog
+</a>
+</div>
+
+</div>
 </div>
 
 <script setup>

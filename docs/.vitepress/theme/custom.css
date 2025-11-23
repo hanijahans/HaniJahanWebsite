@@ -40,7 +40,7 @@
   position: relative;
   min-height: calc(100vh - var(--vp-nav-height));
   display: flex;
-  align-items: left;
+align-items: flex-start;
   justify-content: flex-start;
   padding: clamp(2rem, 5vw, 4rem) 1.5rem;
   text-align: center;
@@ -89,7 +89,7 @@
 
   max-width: min(52ch, 90vw);
   color: var(--home-hero-text-color);
-  text-shadow: 1 4px 1px var(--home-hero-text-shadow);
+  text-shadow: 1px 4px 1px var(--home-hero-text-shadow);
 }
 
 .home-hero-content h1 {
@@ -204,19 +204,14 @@
 .hero-buttons {
   margin-top: 1.5rem;
   display: flex;
-  flex-wrap: wrap;
+  
+  /* CHANGE: Stack vertically */
+  flex-direction: column;
+  
+  /* CHANGE: Align to the left. Change to 'center' if you want them centered. */
+  align-items: center; 
+  
   gap: 0.75rem;
-}
-
-.hero-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.7rem 1.3rem;
-  border-radius: 999px;
-  font-weight: 600;
-  text-decoration: none;
-  font-size: 0.95rem;
 }
 
 .hero-button {
@@ -228,7 +223,19 @@
   font-weight: 600;
   text-decoration: none;
   font-size: 1rem;
-  transition: opacity 0.2s ease;
+  letter-spacing: 0.01em;
+  border: 2px solid transparent;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.14);
+
+  /* Add this line to remove the inherited shadow */
+  text-shadow: none;
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
 }
 
 .hero-button.primary {
@@ -237,16 +244,26 @@
 }
 
 .hero-button.primary:hover {
-  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.18);
 }
 
 .hero-button.secondary {
-  background: transparent;
-  border: 2px solid rgba(255,255,255,0.8);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.75);
   color: #fff;
 }
 
 .hero-button.secondary:hover {
-  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.18);
+}
+
+.hero-button:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 3px rgba(255, 255, 255, 0.35),
+    0 14px 36px rgba(0, 0, 0, 0.18);
+  transform: translateY(-1px);
 }
 
