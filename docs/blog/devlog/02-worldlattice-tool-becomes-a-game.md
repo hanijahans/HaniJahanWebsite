@@ -1,7 +1,7 @@
 ---
 series: WorldLattice Devlog
 title: WorldLattice Devlog 02 — When a Tool Decides It Wants to Be a Game
-status: draft
+status: Published
 tags:
   - worldbuilding
   - worldlattice
@@ -86,8 +86,6 @@ And that’s okay.
 Right now it’s a **toy-game-generator-creature**, and honestly?  
 It’s more alive than it has ever been
 
-## **If You Want More**
-If you enjoyed this, join [the WorldLattice Discord](https://discord.gg/7pk5Je9bFT) for upcoming devlogs, early previews, and behind-the-scenes chaos.
 
 **— Hani Jahan**  
 _WorldLattice Project_
