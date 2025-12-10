@@ -16,8 +16,12 @@ tiny worlds.
 </p>
 
 <div class="hero-buttons">
-<a class="hero-button primary" href="https://hanijahan.com/" target="_blank" rel="noreferrer">
-Wishlist on Steam
+<a class="hero-button primary" href="https://hanijahan.itch.io/worldlattice" target="_blank" rel="noreferrer">
+Play
+</a>
+
+<a class="hero-button secondary" href="/worldlattice/documentation">
+Documentation
 </a>
 
 <a class="hero-button secondary" href="/blog/">
