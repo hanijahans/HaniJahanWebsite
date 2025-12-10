@@ -15,7 +15,7 @@ For collaborations, project proposals, or just to say hi.
 
 🗨 **Join the Community**  
 Want to chat, share your work, or connect with other creators?  
-[**Join my Discord server**](https://discord.gg/7pk5Je9bFT) and be part of the conversation.
+[**Join my Discord server**](https://discord.gg/xd9BkW7z8m) and be part of the conversation.
 
 ---
 
