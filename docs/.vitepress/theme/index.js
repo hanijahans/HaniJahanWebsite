@@ -10,7 +10,7 @@ function DiscordCTA() {
     h('p', null, [
       'Want to chat, share your work, or connect with other creators? ',
       h('a', { 
-        href: 'https://discord.gg/7pk5Je9bFT', 
+        href: 'https://discord.gg/xd9BkW7z8m', 
         target: '_blank',
         style: 'text-decoration:none; display:inline-flex; align-items:center; gap:6px; font-weight:600;'
       }, [
