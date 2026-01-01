@@ -58,7 +58,7 @@ Right now, WorldLattice is focused on stable, reliable world generation. Next, I
 
 If you want to build faster, prototype ideas, or just have fun with procedural generation—WorldLattice is for you.
 
-If you enjoyed this, join [the WorldLattice Discord](https://discord.gg/7pk5Je9bFT) for upcoming devlogs, early previews, and behind-the-scenes chaos.
+If you enjoyed this, join [the WorldLattice Discord](https://discord.gg/GhakCXMtVy) for upcoming devlogs, early previews, and behind-the-scenes chaos.
 
 **— Hani Jahan**  
 _WorldLattice Project_
