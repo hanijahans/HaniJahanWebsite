@@ -63,9 +63,9 @@ Here is the catch: while a fellow artist might look at that Step 1 mess and unde
 I believe it almost works the exact same way in game development. The prototype is your messy sketch. Fellow developers—and maybe the niche crowd on itch.io—can look past the rough edges to see the vision. But a broader audience, like on Steam, needs clarity. To reach them, you have to commit to Step 2 and turn that mess into a solid structure they can actually recognize.
 
 Here’s how the drawing stages map to game dev:  
-- **Step 1: Messy Sketch $\rightarrow$ Prototype / Itch.io Build**  
-- **Step 2: Core Structure $\rightarrow$ Steam Demo**  
-- **Step 3: Polish $\rightarrow$ Released Game**  
+- **Step 1: Messy Sketch → Prototype / Itch.io Build**  
+- **Step 2: Core Structure → Steam Demo**  
+- **Step 3: Polish → Released Game**  
 
 ## **Step 1: Messy Sketch → Prototype / Itch.io Build**
 
