@@ -2,8 +2,9 @@ import { DefaultTheme, defineConfig } from 'vitepress'
 
 const navItems: DefaultTheme.NavItem[] = [
   { text: 'Home', link: '/' },
-  // { text: 'Portfolio', link: '/portfolio/' },
   { text: 'Blog', link: '/blog/' },
+  { text: 'Houdini', link: '/houdini/' },
+
   // {
   //   text: 'Products',
   //   items: [{ text: 'Unity Free Pack', link: '/products/unity/free-pack/' }]

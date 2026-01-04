@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed, reactive } from 'vue'
-import { portfolio } from '/data/portfolio'
+import { houdini } from '/data/houdini'
 
-const items = portfolio
+const items = houdini
 
 const widths = reactive<Record<number, number>>({})
 
