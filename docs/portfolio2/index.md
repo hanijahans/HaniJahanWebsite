@@ -5,7 +5,7 @@ layout: page
 ---
 
 <script setup>
-import { houdini } from '/data/portfolio1'
+import { houdini } from '/data/portfolio2'
 </script>
 
 <PortfolioPage
