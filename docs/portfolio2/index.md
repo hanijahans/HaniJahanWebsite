@@ -11,6 +11,6 @@ import { houdini } from '/data/portfolio2'
 <PortfolioPage
   title="PORTFOLIO B"
   description="Simulation / Digital Twin / Defense / Autonomous Systems"
-  youtube-id="GBCFRYMkSrY"
+  youtube-id=""
   :items="houdini"
 />

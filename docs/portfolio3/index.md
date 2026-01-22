@@ -11,6 +11,6 @@ import { houdini } from '/data/portfolio3'
 <PortfolioPage
   title="PORTFOLIO C"
   description="Geospatial Data Visualization / Mapping / Analytics"
-  youtube-id="GBCFRYMkSrY"
+  youtube-id=""
   :items="houdini"
 />
