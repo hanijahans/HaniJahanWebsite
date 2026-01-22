@@ -16,8 +16,8 @@ heroTextTone: 0.6
     class="home-hero-content"
     :style="{ '--home-hero-text-tone': heroTextTone }"
   >
-    <h1>Worldbuilding &amp; Procedural Tools</h1>
-  </div>
+    <!-- <h1>Worldbuilding &amp; Procedural Tools</h1> -->
+    </div>
 </div>
 
 <script setup>
