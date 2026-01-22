@@ -1,33 +1,14 @@
 <script setup lang="ts">
-import { computed, reactive } from 'vue'
+import { computed } from 'vue'
 import { houdini, type PortfolioItem } from '../../../data/portfolio1'
 
 const props = defineProps<{ items?: PortfolioItem[] }>()
 const gridItems = computed(() => props.items ?? houdini)
-
-const widths = reactive<Record<number, number>>({})
-
-const cardStyles = computed(() =>
-  gridItems.value.map((_, index) =>
-    widths[index] ? { '--card-width': `${widths[index]}px` } : {}
-  )
-)
-
-const handleImageLoad = (index: number, event: Event) => {
-  const target = event.target as HTMLImageElement | null
-  if (!target?.naturalWidth) return
-  widths[index] = target.naturalWidth
-}
 </script>
 
 <template>
   <div class="portfolio-grid">
-    <div
-      v-for="(it, i) in gridItems"
-      :key="i"
-      class="card"
-      :style="cardStyles[i]"
-    >
+    <div v-for="(it, i) in gridItems" :key="i" class="card">
       <div v-if="it.videoEmbed || it.video" class="cover">
         <div class="cover-media">
           <iframe
@@ -53,7 +34,6 @@ const handleImageLoad = (index: number, event: Event) => {
           :src="it.cover"
           :alt="it.title"
           loading="lazy"
-          @load="handleImageLoad(i, $event)"
         />
       </a>
       <div v-else class="cover">
@@ -61,7 +41,6 @@ const handleImageLoad = (index: number, event: Event) => {
           :src="it.cover"
           :alt="it.title"
           loading="lazy"
-          @load="handleImageLoad(i, $event)"
         />
       </div>
       <div class="body">
@@ -96,7 +75,7 @@ const handleImageLoad = (index: number, event: Event) => {
   overflow: hidden;
   background: var(--vp-c-bg);
   transition: transform .15s ease, box-shadow .15s ease;
-  width: min(var(--card-width, 320px), 100%);
+  width: 100%;
   flex: 0 0 auto;
   box-sizing: border-box;
   display: flex;
