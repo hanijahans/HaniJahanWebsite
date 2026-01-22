@@ -4,7 +4,7 @@ description: Diorama-style terrain generator with flattening, erosion, and slope
 ---
 
 # Procedural Terrain System
-![Preview](/houdini/technical-systems.png)
+![Preview](/portfolio/technical-systems.png)
 
 A procedural terrain generator designed for stylized diorama-style environments.
 

@@ -16,7 +16,7 @@ export const houdini: PortfolioItem[] = [
     title: "Procedural Terrain System",
     subtitle: " ",
     tags: ["Procedural", "Tools", "Terrain"],
-    cover: "/houdini/procedural-terrain.png",
+    cover: "/portfolio/procedural-terrain.png",
     videoEmbed: "https://www.youtube.com/embed/GBCFRYMkSrY?rel=0",
     url: "/portfolio/procedural-terrain", // or external if you prefer
     description:
@@ -26,7 +26,7 @@ export const houdini: PortfolioItem[] = [
     title: "Procedural Vegetation Toolkit",
     subtitle: " ",
     tags: ["Procedural", "Tools", "Vegetation"],
-    cover: "/houdini/procedural-vegetation.png",
+    cover: "/portfolio/procedural-vegetation.png",
     url: "/portfolio/procedural-vegetation",
     description:
       "Fully procedural vegetation tools with control over variation and instancing. Scales from dense forests to decorative foliage; built for fast iteration and visual diversity."
@@ -35,7 +35,7 @@ export const houdini: PortfolioItem[] = [
     title: "Modular Building Generator",
     subtitle: " ",
     tags: ["Procedural", "Tools", "Modular", "Building"],
-    cover: "/houdini/modular-building.png",
+    cover: "/portfolio/modular-building.png",
     url: "/portfolio/modular-building",
     description:
       "Generates structures from simple grids: customizable facades, floors, roof styles, and material variation. Game-ready, modular, and iteration-friendly."
@@ -44,7 +44,7 @@ export const houdini: PortfolioItem[] = [
     title: "Algorithmic Design",
     subtitle: " ",
     tags: ["Procedural", "WFC", "Space Colonization"],
-    cover: "/houdini/technical-systems.png",
+    cover: "/portfolio/technical-systems.png",
     url: "/portfolio/technical-systems",
     description:
       "Custom procedural logic: Wave Function Collapse for tile-based layouts; Space Colonization for stylized trees/veins in NPR-style worlds."
@@ -53,7 +53,7 @@ export const houdini: PortfolioItem[] = [
     title: "Artist-Friendly Toolset",
     subtitle: " ",
     tags: ["Procedural", "Tools"],
-    cover: "/houdini/artist-friendly-toolset.png",
+    cover: "/portfolio/artist-friendly-toolset.png",
     url: "/portfolio/artist-friendly-toolset",
     description:
       "A suite of HDAs for environment artists: measurement systems, slope detectors, scatter controls, and layout visualizers—usable by technical and non-technical teammates."
