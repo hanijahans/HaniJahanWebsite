@@ -15,7 +15,7 @@ export const houdini: PortfolioItem[] = [
     subtitle: " ",
     tags: ["Procedural", "Tools", "Terrain"],
     cover: "/houdini/procedural-terrain.png",
-    url: "/portfolio1/procedural-terrain", // or external if you prefer
+    url: "/portfolio/procedural-terrain", // or external if you prefer
     description:
       "Terrain generator for flexible world layout and stylized ecosystems: flattening, erosion-based detail, and slope-aware scattering for roads, cities, and natural flow."
   },
@@ -24,7 +24,7 @@ export const houdini: PortfolioItem[] = [
     subtitle: " ",
     tags: ["Procedural", "WFC", "Space Colonization"],
     cover: "/houdini/technical-systems.png",
-    url: "/portfolio1/technical-systems",
+    url: "/portfolio/technical-systems",
     description:
       "Custom procedural logic: Wave Function Collapse for tile-based layouts; Space Colonization for stylized trees/veins in NPR-style worlds."
   },
