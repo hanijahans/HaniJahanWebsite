@@ -5,6 +5,8 @@ export type PortfolioItem = {
   year?: string
   tags?: string[]
   cover: string     // path under /public
+  video?: string    // optional mp4/webm path under /public
+  videoEmbed?: string // optional embed URL (e.g. YouTube)
   url?: string      // external link or internal route
   description?: string
 };
@@ -15,6 +17,7 @@ export const houdini: PortfolioItem[] = [
     subtitle: " ",
     tags: ["Procedural", "Tools", "Terrain"],
     cover: "/houdini/procedural-terrain.png",
+    videoEmbed: "https://www.youtube.com/embed/GBCFRYMkSrY?rel=0",
     url: "/portfolio1/procedural-terrain", // or external if you prefer
     description:
       "Terrain generator for flexible world layout and stylized ecosystems: flattening, erosion-based detail, and slope-aware scattering for roads, cities, and natural flow."

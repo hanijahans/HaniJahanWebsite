@@ -28,7 +28,27 @@ const handleImageLoad = (index: number, event: Event) => {
       class="card"
       :style="cardStyles[i]"
     >
-      <a v-if="it.url" :href="it.url" class="cover">
+      <div v-if="it.videoEmbed || it.video" class="cover">
+        <div class="cover-media">
+          <iframe
+            v-if="it.videoEmbed"
+            :src="it.videoEmbed"
+            :title="`${it.title} video`"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          />
+          <video
+            v-else
+            :src="it.video"
+            :poster="it.cover"
+            muted
+            playsinline
+            controls
+          />
+        </div>
+      </div>
+      <a v-else-if="it.url" :href="it.url" class="cover">
         <img
           :src="it.cover"
           :alt="it.title"
@@ -36,6 +56,14 @@ const handleImageLoad = (index: number, event: Event) => {
           @load="handleImageLoad(i, $event)"
         />
       </a>
+      <div v-else class="cover">
+        <img
+          :src="it.cover"
+          :alt="it.title"
+          loading="lazy"
+          @load="handleImageLoad(i, $event)"
+        />
+      </div>
       <div class="body">
         <h3 class="title">
           <a v-if="it.url" :href="it.url">{{ it.title }}</a>
@@ -78,6 +106,18 @@ const handleImageLoad = (index: number, event: Event) => {
   display: block;
   width: 100%;
   height: auto;
+}
+.cover-media {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+}
+.cover-media iframe,
+.cover-media video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 .body { padding: 12px 14px; }
 .title { margin:0 0 4px; font-size: 1rem; line-height:1.2; }
