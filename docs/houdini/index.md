@@ -6,8 +6,7 @@ layout: page
 
 # Houdini
 
-<YouTube id="GBCFRYMkSrY" />
+<YouTube id="GBCFRYMkSrY" width="70%" />
+
+#
 <PortfolioGrid />
-
-
-
