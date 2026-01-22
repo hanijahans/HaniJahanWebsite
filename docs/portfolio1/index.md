@@ -1,6 +1,6 @@
 ---
-title: Houdini
-description: Selected projects by Hani Jahan — worldbuilding tools with Houdini.
+title: PORTFOLIO
+description: PORTFOLIO description
 layout: page
 ---
 
@@ -9,8 +9,8 @@ import { houdini } from '/data/portfolio1'
 </script>
 
 <PortfolioPage
-  title="Houdini"
-  description="Selected projects by Hani Jahan — worldbuilding tools with Houdini."
+  title="PORTFOLIO A"
+  description="Procedural Technical Artist"
   youtube-id="GBCFRYMkSrY"
   :items="houdini"
 />

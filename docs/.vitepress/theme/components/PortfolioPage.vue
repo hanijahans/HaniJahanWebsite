@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import PortfolioGrid from './PortfolioGrid.vue'
-import type { PortfolioItem } from '/data/portfolio1'
+import type { PortfolioItem } from '../../../data/portfolio1'
 
 const props = defineProps<{
   title: string
