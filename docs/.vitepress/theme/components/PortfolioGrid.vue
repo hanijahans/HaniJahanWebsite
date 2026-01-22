@@ -44,19 +44,30 @@ const gridItems = computed(() => props.items ?? houdini)
         />
       </div>
       <div class="body">
-        <h3 class="title">
-          <a v-if="it.url" :href="it.url">{{ it.title }}</a>
-          <span v-else>{{ it.title }}</span>
-        </h3>
-        <p v-if="it.subtitle" class="subtitle">{{ it.subtitle }}</p>
-        <p v-if="it.description" class="desc">{{ it.description }}</p>
-        <div class="meta">
-          <span v-if="it.role">{{ it.role }}</span>
-          <span v-if="it.year">· {{ it.year }}</span>
-        </div>
-        <div v-if="it.tags?.length" class="tags">
-          <span v-for="t in it.tags" :key="t" class="tag">{{ t }}</span>
-        </div>
+        <a v-if="it.url" :href="it.url" class="body-link">
+          <h3 class="title">{{ it.title }}</h3>
+          <p v-if="it.subtitle" class="subtitle">{{ it.subtitle }}</p>
+          <p v-if="it.description" class="desc">{{ it.description }}</p>
+          <div class="meta">
+            <span v-if="it.role">{{ it.role }}</span>
+            <span v-if="it.year">· {{ it.year }}</span>
+          </div>
+          <div v-if="it.tags?.length" class="tags">
+            <span v-for="t in it.tags" :key="t" class="tag">{{ t }}</span>
+          </div>
+        </a>
+        <template v-else>
+          <h3 class="title">{{ it.title }}</h3>
+          <p v-if="it.subtitle" class="subtitle">{{ it.subtitle }}</p>
+          <p v-if="it.description" class="desc">{{ it.description }}</p>
+          <div class="meta">
+            <span v-if="it.role">{{ it.role }}</span>
+            <span v-if="it.year">· {{ it.year }}</span>
+          </div>
+          <div v-if="it.tags?.length" class="tags">
+            <span v-for="t in it.tags" :key="t" class="tag">{{ t }}</span>
+          </div>
+        </template>
       </div>
     </div>
   </div>
@@ -100,6 +111,11 @@ const gridItems = computed(() => props.items ?? houdini)
   border: 0;
 }
 .body { padding: 12px 14px; }
+.body-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
 .title { margin:0 0 4px; font-size: 1rem; line-height:1.2; }
 .subtitle { margin:0 0 6px; opacity:.8; }
 .desc { margin:0 0 8px; font-size:.92rem; opacity:.9; }
