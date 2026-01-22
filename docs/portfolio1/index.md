@@ -4,9 +4,13 @@ description: Selected projects by Hani Jahan — worldbuilding tools with Houdin
 layout: page
 ---
 
-# Houdini
+<script setup>
+import { houdini } from '/data/portfolio1'
+</script>
 
-<YouTube id="GBCFRYMkSrY" width="70%" />
-
-#
-<PortfolioGrid />
+<PortfolioPage
+  title="Houdini"
+  description="Selected projects by Hani Jahan — worldbuilding tools with Houdini."
+  youtube-id="GBCFRYMkSrY"
+  :items="houdini"
+/>

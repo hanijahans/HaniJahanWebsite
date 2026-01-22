@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import { computed, reactive } from 'vue'
-import { houdini } from '../../../data/portfolio1'
+import { houdini, type PortfolioItem } from '../../../data/portfolio1'
 
-const items = houdini
+const props = defineProps<{ items?: PortfolioItem[] }>()
+const gridItems = computed(() => props.items ?? houdini)
 
 const widths = reactive<Record<number, number>>({})
 
 const cardStyles = computed(() =>
-  items.map((_, index) =>
+  gridItems.value.map((_, index) =>
     widths[index] ? { '--card-width': `${widths[index]}px` } : {}
   )
 )
@@ -22,7 +23,7 @@ const handleImageLoad = (index: number, event: Event) => {
 <template>
   <div class="portfolio-grid">
     <div
-      v-for="(it, i) in items"
+      v-for="(it, i) in gridItems"
       :key="i"
       class="card"
       :style="cardStyles[i]"

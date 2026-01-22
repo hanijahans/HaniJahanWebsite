@@ -1,4 +1,4 @@
-export type HoudiniItem = {
+export type PortfolioItem = {
   title: string
   subtitle?: string
   role?: string
@@ -9,7 +9,7 @@ export type HoudiniItem = {
   description?: string
 };
 
-export const houdini: HoudiniItem[] = [
+export const houdini: PortfolioItem[] = [
   {
     title: "Procedural Terrain System",
     subtitle: " ",

@@ -2,6 +2,7 @@ import DefaultTheme from 'vitepress/theme'
 import { h } from 'vue'
 import { useData, useRoute } from 'vitepress'
 import PortfolioGrid from './components/PortfolioGrid.vue'
+import PortfolioPage from './components/PortfolioPage.vue'
 import YouTube from './components/YouTube.vue' // Ensure this file exists
 import './custom.css'
 
@@ -63,7 +64,10 @@ export default {
     // 2. Register PortfolioGrid
     app.component('PortfolioGrid', PortfolioGrid)
 
-    // 3. Register YouTube (This is the new part added here)
+    // 3. Register PortfolioPage
+    app.component('PortfolioPage', PortfolioPage)
+
+    // 4. Register YouTube (This is the new part added here)
     app.component('YouTube', YouTube)
   }
 }
