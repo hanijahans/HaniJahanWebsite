@@ -86,7 +86,8 @@ const handleImageLoad = (index: number, event: Event) => {
 <style scoped>
 .portfolio-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  /* grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
 }
 .card {
