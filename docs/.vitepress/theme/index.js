@@ -2,8 +2,10 @@ import DefaultTheme from 'vitepress/theme'
 import { h } from 'vue'
 import { useData, useRoute } from 'vitepress'
 import PortfolioGrid from './components/PortfolioGrid.vue'
+import YouTube from './components/YouTube.vue' // Ensure this file exists
 import './custom.css'
 
+// Your helper component
 function DiscordCTA() {
   return h('div', { class: 'discord-cta' }, [
     h('p', { class: 'discord-title' }, '💬 Join the Conversation'),
@@ -27,17 +29,22 @@ function DiscordCTA() {
   ])
 }
 
+// The single, merged export
 export default {
-  ...DefaultTheme,
+  extends: DefaultTheme, // It is cleaner to use 'extends' than '...DefaultTheme'
+  
   Layout() {
     const { frontmatter } = useData()
     const route = useRoute()
     const isDraft = frontmatter.value?.draft
     const isBlogIndex = route.path === '/blog/'
 
+    // Handle Drafts
     if (isDraft && !isBlogIndex) {
       return h(DefaultTheme.NotFound)
     }
+
+    // Return Layout with slots
     return h(DefaultTheme.Layout, null, {
       'doc-after': () => {
         if (frontmatter.value?.comments === false) return null
@@ -46,10 +53,17 @@ export default {
       }
     })
   },
+
   enhanceApp({ app, router }) {
+    // 1. Run the default theme's enhanceApp if it exists
     if (typeof DefaultTheme.enhanceApp === 'function') {
       DefaultTheme.enhanceApp({ app, router })
     }
+
+    // 2. Register PortfolioGrid
     app.component('PortfolioGrid', PortfolioGrid)
+
+    // 3. Register YouTube (This is the new part added here)
+    app.component('YouTube', YouTube)
   }
 }

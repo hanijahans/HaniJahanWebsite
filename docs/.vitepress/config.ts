@@ -9,7 +9,7 @@ const navItems: DefaultTheme.NavItem[] = [
   //   text: 'Products',
   //   items: [{ text: 'Unity Free Pack', link: '/products/unity/free-pack/' }]
   // },
-  { text: 'WorldLattice', link: '/worldlattice/' },
+  { text: 'GameDev', link: '/worldlattice/' },
   { text: 'Contact', link: '/contact/' }
 ]
 
