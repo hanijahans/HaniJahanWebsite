@@ -3,7 +3,7 @@
 layout: doc
 
 # Page Metadata
-title: "Blog 01 - Game Dev Lessons From Drawing: The 3-Step Structure"
+title: "Game Dev Blog 01 - Game Dev Lessons From Drawing: The 3-Step Structure"
 date: 2025-12-28
 author: Hani Jahan
 description: "Game development mirrors drawing: prototype fast, rebuild structure ruthlessly, then polish only after clarity emerges."
