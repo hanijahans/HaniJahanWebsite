@@ -24,7 +24,7 @@ Not by cleaning things up, but by going back to zero and asking questions I avoi
 
 After multiple life resets, I learned this: restarts aren’t always about failure. Sometimes they’re about finally seeing the structure underneath.
 
-I wrote more about this mindset in _[Game Dev Lessons from Drawing](/blog/blog-01-game-dev-lessons-from-drawing.md)_ — and this devlog is the practical follow-through on that idea.  
+I wrote more about this mindset in _[Game Dev Lessons from Drawing](/blog/gamedev-blog-01-game-dev-lessons-from-drawing)_ — and this devlog is the practical follow-through on that idea.  
 
 ## The Step I Skipped That Broke Everything
 
