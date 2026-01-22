@@ -3,7 +3,7 @@ import { DefaultTheme, defineConfig } from 'vitepress'
 const navItems: DefaultTheme.NavItem[] = [
   { text: 'Home', link: '/' },
   { text: 'Blog', link: '/blog/' },
-  { text: 'Houdini', link: '/houdini/' },
+  { text: 'Portfolio1', link: '/portfolio1/' },
 
   // {
   //   text: 'Products',
