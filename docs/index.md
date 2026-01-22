@@ -5,10 +5,13 @@ pageClass: home-full-hero
 title: false
 heroShade: 0.5
 heroTextTone: 0.6
-
+head:
+  - - meta
+    - http-equiv: refresh
+      content: "0;url=/contact.html"
 ---
 
-<div
+<!-- <div
   class="home-hero-image"
   :style="{ '--home-hero-shade-control': heroShade }"
 >
@@ -16,7 +19,7 @@ heroTextTone: 0.6
     class="home-hero-content"
     :style="{ '--home-hero-text-tone': heroTextTone }"
   >
-    <!-- <h1>Worldbuilding &amp; Procedural Tools</h1> -->
+    <h1>Worldbuilding &amp; Procedural Tools</h1>
     </div>
 </div>
 
@@ -47,4 +50,8 @@ const heroTextTone = computed(() => {
 
   return Math.max(0, Math.min(1, raw))
 })
-</script>
+</script> -->
+
+<noscript>
+  <meta http-equiv="refresh" content="0;url=/contact.html" />
+</noscript>
