@@ -40,22 +40,4 @@ export const houdini: PortfolioItem[] = [
     description:
       "Generates structures from simple grids: customizable facades, floors, roof styles, and material variation. Game-ready, modular, and iteration-friendly."
   },
-  {
-    title: "Algorithmic Design",
-    subtitle: " ",
-    tags: ["Procedural", "WFC", "Space Colonization"],
-    cover: "/portfolio/technical-systems.png",
-    url: "/portfolio/technical-systems",
-    description:
-      "Custom procedural logic: Wave Function Collapse for tile-based layouts; Space Colonization for stylized trees/veins in NPR-style worlds."
-  },
-  {
-    title: "Artist-Friendly Toolset",
-    subtitle: " ",
-    tags: ["Procedural", "Tools"],
-    cover: "/portfolio/artist-friendly-toolset.png",
-    url: "/portfolio/artist-friendly-toolset",
-    description:
-      "A suite of HDAs for environment artists: measurement systems, slope detectors, scatter controls, and layout visualizers—usable by technical and non-technical teammates."
-  }
 ];
