@@ -35,6 +35,7 @@ const headingText = computed(() => props.heading ?? props.title)
   display: flex;
   flex-direction: column;
   gap: 24px;
+  padding: 0 24px;
 }
 .hero {
   display: flex;
@@ -42,11 +43,11 @@ const headingText = computed(() => props.heading ?? props.title)
   gap: 12px;
 }
 .hero-description {
-  max-width: 70ch;
+  max-width: 100%;
   opacity: 0.85;
 }
 .hero-summary {
-  max-width: 70ch;
+  max-width: 100%;
   opacity: 0.9;
 }
 .hero-video {
