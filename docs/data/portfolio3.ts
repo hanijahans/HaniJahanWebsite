@@ -11,15 +11,6 @@ export type PortfolioItem = {
 
 export const houdini: PortfolioItem[] = [
   {
-    title: "Procedural Terrain System",
-    subtitle: " ",
-    tags: ["Procedural", "Tools", "Terrain"],
-    cover: "/portfolio/procedural-terrain.png",
-    url: "/portfolio/procedural-terrain", // or external if you prefer
-    description:
-      "Terrain generator for flexible world layout and stylized ecosystems: flattening, erosion-based detail, and slope-aware scattering for roads, cities, and natural flow."
-  },
-  {
     title: "Multi-Format Data Visualization",
     subtitle: "Data → Visualization",
     tags: ["Geospatial", "Data", "Visualization"],
