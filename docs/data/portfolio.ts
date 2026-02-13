@@ -90,6 +90,7 @@ export const houdini: PortfolioItem[] = Object.entries(archiveDocs)
       category,
       categoryOrder,
       order,
+      tags: category ? [category] : undefined,
       cover: cover || fallbackCover,
       url: `/portfolio-archive/${slug}`,
       description
