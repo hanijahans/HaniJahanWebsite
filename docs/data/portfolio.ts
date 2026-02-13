@@ -17,6 +17,8 @@ export type PortfolioItem = {
 type ArchiveDocMeta = {
   title?: string
   description?: string
+  shortDescription?: string
+  tags?: string[]
   cover?: string
   category?: string
   categoryOrder?: number
@@ -27,6 +29,9 @@ type ParsedArchiveDoc = {
   data: ArchiveDocMeta
   content: string
 }
+
+type FrontmatterValue = string | string[]
+type Frontmatter = Record<string, FrontmatterValue>
 
 const archiveDocs = import.meta.glob('../portfolio-archive/*.md', {
   eager: true,
@@ -55,70 +60,169 @@ const unwrapQuoted = (value: string): string => {
   return trimmed
 }
 
-const parseFrontmatter = (raw: string): { frontmatter: Record<string, string>; content: string } => {
+const parseFrontmatter = (raw: string): { frontmatter: Frontmatter; content: string } => {
   const lines = raw.split(/\r?\n/)
 
   if (lines[0]?.trim() !== '---') {
-    return {
-      frontmatter: {},
-      content: raw
-    }
+    return { frontmatter: {}, content: raw }
   }
 
   const endIndex = lines.slice(1).findIndex((line) => line.trim() === '---')
-
   if (endIndex === -1) {
-    return {
-      frontmatter: {},
-      content: raw
-    }
+    return { frontmatter: {}, content: raw }
   }
 
   const frontmatterLines = lines.slice(1, endIndex + 1)
   const content = lines.slice(endIndex + 2).join('\n')
 
-  const frontmatter = frontmatterLines.reduce<Record<string, string>>((acc, line) => {
+  const frontmatter: Frontmatter = {}
+  for (let i = 0; i < frontmatterLines.length; i++) {
+    const line = frontmatterLines[i]
     const trimmed = line.trim()
 
-    if (!trimmed || trimmed.startsWith('#')) {
-      return acc
+    if (!trimmed || trimmed.startsWith('#')) continue
+
+    const match = line.match(/^([A-Za-z0-9_-]+)\s*:\s*(.*)$/)
+    if (!match) continue
+
+    const key = match[1]?.trim()
+    const rawValue = match[2] ?? ''
+
+    if (!key) continue
+
+    // YAML list support:
+    // tags:
+    //   - Houdini
+    //   - VEX
+    if (rawValue.trim() === '') {
+      const items: string[] = []
+      let j = i + 1
+
+      while (j < frontmatterLines.length) {
+        const next = frontmatterLines[j]
+        const nextTrim = next.trim()
+
+        // stop if next key starts
+        if (/^[A-Za-z0-9_-]+\s*:\s*/.test(next) && !nextTrim.startsWith('-')) break
+        if (!nextTrim) {
+          j++
+          continue
+        }
+
+        const li = nextTrim.match(/^-+\s*(.*)$/)
+        if (!li) break
+
+        const item = unwrapQuoted(li[1] ?? '').trim()
+        if (item) items.push(item)
+        j++
+      }
+
+      if (items.length > 0) {
+        frontmatter[key] = items
+        i = j - 1
+      } else {
+        frontmatter[key] = ''
+      }
+
+      continue
     }
 
-    const separatorIndex = line.indexOf(':')
-
-    if (separatorIndex === -1) {
-      return acc
-    }
-
-    const key = line.slice(0, separatorIndex).trim()
-    const value = line.slice(separatorIndex + 1).trim()
-
-    if (key) {
-      acc[key] = unwrapQuoted(value)
-    }
-
-    return acc
-  }, {})
+    frontmatter[key] = unwrapQuoted(rawValue)
+  }
 
   return { frontmatter, content }
 }
 
-const toNumberOrUndefined = (value: string | undefined): number | undefined => {
-  if (!value) {
-    return undefined
-  }
-
+const toNumberOrUndefined = (value: unknown): number | undefined => {
+  if (typeof value !== 'string') return undefined
   const parsed = Number(value)
   return Number.isFinite(parsed) ? parsed : undefined
 }
 
 const toStringOrUndefined = (value: unknown): string | undefined => {
-  if (typeof value !== 'string') {
-    return undefined
-  }
-
+  if (typeof value !== 'string') return undefined
   const trimmed = value.trim()
   return trimmed.length > 0 ? trimmed : undefined
+}
+
+const toStringArrayOrUndefined = (value: unknown): string[] | undefined => {
+  if (Array.isArray(value)) {
+    const arr = value.map((v) => (typeof v === 'string' ? v.trim() : '')).filter(Boolean)
+    return arr.length ? arr : undefined
+  }
+
+  if (typeof value !== 'string') return undefined
+  const trimmed = value.trim()
+  if (!trimmed) return undefined
+
+  // inline list: [a, b, "c d"]
+  if (trimmed.startsWith('[') && trimmed.endsWith(']')) {
+    const items = trimmed
+      .slice(1, -1)
+      .split(',')
+      .map((item) => unwrapQuoted(item).trim())
+      .filter(Boolean)
+    return items.length ? items : undefined
+  }
+
+  // comma-separated: a, b, c
+  if (trimmed.includes(',')) {
+    const items = trimmed
+      .split(',')
+      .map((item) => unwrapQuoted(item).trim())
+      .filter(Boolean)
+    return items.length ? items : undefined
+  }
+
+  return [unwrapQuoted(trimmed)]
+}
+
+const extractFirstParagraph = (content: string): string | undefined => {
+  const lines = content.split(/\r?\n/)
+  const paragraphLines: string[] = []
+
+  for (const line of lines) {
+    const t = line.trim()
+
+    // skip empty, headings, images
+    if (!t || t.startsWith('#') || t.startsWith('![')) {
+      if (paragraphLines.length) break
+      continue
+    }
+
+    // stop before lists / bullets to avoid turning tool lists into "description"
+    if (t.startsWith('- ') || t.startsWith('* ')) {
+      if (paragraphLines.length) break
+      continue
+    }
+
+    paragraphLines.push(t)
+  }
+
+  if (!paragraphLines.length) return undefined
+  return paragraphLines.join(' ').replace(/\s+/g, ' ')
+}
+
+const extractToolTags = (content: string): string[] | undefined => {
+  // Accept headings like:
+  // ## Tools & Tech
+  // ## Tools and Tech
+  // ## Tools
+  const sectionMatch = content.match(
+    /##\s*(Tools\s*(?:&|and)?\s*Tech|Tools)\s*\n([\s\S]*?)(?:\n##\s|$)/i
+  )
+
+  if (!sectionMatch) return undefined
+
+  const body = sectionMatch[2] ?? ''
+  const tags = body
+    .split(/\r?\n/)
+    .map((line) => line.trim())
+    .filter((line) => line.startsWith('- ') || line.startsWith('* '))
+    .map((line) => line.replace(/^[-*]\s+/, '').trim())
+    .filter(Boolean)
+
+  return tags.length ? tags : undefined
 }
 
 const parseArchiveDoc = (raw: string): ParsedArchiveDoc => {
@@ -127,6 +231,8 @@ const parseArchiveDoc = (raw: string): ParsedArchiveDoc => {
   const data: ArchiveDocMeta = {
     title: toStringOrUndefined(frontmatter.title),
     description: toStringOrUndefined(frontmatter.description),
+    shortDescription: toStringOrUndefined(frontmatter.shortDescription),
+    tags: toStringArrayOrUndefined(frontmatter.tags),
     cover: toStringOrUndefined(frontmatter.cover),
     category: toStringOrUndefined(frontmatter.category),
     categoryOrder: toNumberOrUndefined(frontmatter.categoryOrder),
@@ -149,23 +255,32 @@ const compareItems = (a: PortfolioItem, b: PortfolioItem): number => {
 export const houdini: PortfolioItem[] = Object.entries(archiveDocs)
   .map(([path, raw]) => {
     const slug = path.split('/').pop()?.replace('.md', '')
-
-    if (!slug) {
-      return null
-    }
+    if (!slug) return null
 
     const { data, content } = parseArchiveDoc(raw)
+
     const firstImage = content.match(/!\[[^\]]*\]\(([^)]+)\)/)?.[1]
+    const tagsFromContent = extractToolTags(content)
+
+    const description =
+      data.shortDescription ||
+      data.description ||
+      extractFirstParagraph(content)
+
+    const tags =
+      data.tags ||
+      tagsFromContent ||
+      (data.category ? [data.category] : undefined)
 
     return {
       title: data.title || toTitle(slug),
       category: data.category,
       categoryOrder: data.categoryOrder,
       order: data.order,
-      tags: data.category ? [data.category] : undefined,
+      tags,
       cover: data.cover || firstImage || fallbackCover,
       url: `/portfolio-archive/${slug}`,
-      description: data.description
+      description
     } satisfies PortfolioItem
   })
   .filter((item): item is PortfolioItem => item !== null)
