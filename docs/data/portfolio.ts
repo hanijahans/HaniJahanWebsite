@@ -23,6 +23,11 @@ type ArchiveDocMeta = {
   order?: number
 }
 
+type ParsedArchiveDoc = {
+  data: ArchiveDocMeta
+  content: string
+}
+
 const archiveDocs = import.meta.glob('../portfolio-archive/*.md', {
   eager: true,
   query: '?raw',
@@ -37,88 +42,131 @@ const toTitle = (slug: string): string =>
     .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
     .join(' ')
 
-const parseArchiveDoc = (raw: string): ArchiveDocMeta => {
-  const frontmatterMatch = raw.match(/^---\n([\s\S]*?)\n---/)
-  const frontmatterBlock = frontmatterMatch?.[1] ?? ''
+const unwrapQuoted = (value: string): string => {
+  const trimmed = value.trim()
 
-  const getFrontmatterValue = (key: string): string | undefined => {
-    const match = frontmatterBlock.match(new RegExp(`^${key}:\\s*(.*)$`, 'm'))
-    const value = match?.[1]?.trim()
+  if (
+    (trimmed.startsWith('"') && trimmed.endsWith('"')) ||
+    (trimmed.startsWith("'") && trimmed.endsWith("'"))
+  ) {
+    return trimmed.slice(1, -1)
+  }
 
-    if (!value) {
-      return undefined
+  return trimmed
+}
+
+const parseFrontmatter = (raw: string): { frontmatter: Record<string, string>; content: string } => {
+  const lines = raw.split(/\r?\n/)
+
+  if (lines[0]?.trim() !== '---') {
+    return {
+      frontmatter: {},
+      content: raw
+    }
+  }
+
+  const endIndex = lines.slice(1).findIndex((line) => line.trim() === '---')
+
+  if (endIndex === -1) {
+    return {
+      frontmatter: {},
+      content: raw
+    }
+  }
+
+  const frontmatterLines = lines.slice(1, endIndex + 1)
+  const content = lines.slice(endIndex + 2).join('\n')
+
+  const frontmatter = frontmatterLines.reduce<Record<string, string>>((acc, line) => {
+    const trimmed = line.trim()
+
+    if (!trimmed || trimmed.startsWith('#')) {
+      return acc
     }
 
-    return value.replace(/^['\"]|['\"]$/g, '')
-  }
+    const separatorIndex = line.indexOf(':')
 
-  const getFrontmatterNumber = (key: string): number | undefined => {
-    const value = getFrontmatterValue(key)
-    if (!value) {
-      return undefined
+    if (separatorIndex === -1) {
+      return acc
     }
 
-    const parsed = Number(value)
-    return Number.isNaN(parsed) ? undefined : parsed
+    const key = line.slice(0, separatorIndex).trim()
+    const value = line.slice(separatorIndex + 1).trim()
+
+    if (key) {
+      acc[key] = unwrapQuoted(value)
+    }
+
+    return acc
+  }, {})
+
+  return { frontmatter, content }
+}
+
+const toNumberOrUndefined = (value: string | undefined): number | undefined => {
+  if (!value) {
+    return undefined
   }
 
-  const imageMatch = raw.match(/!\[[^\]]*\]\(([^)]+)\)/)
+  const parsed = Number(value)
+  return Number.isFinite(parsed) ? parsed : undefined
+}
 
-  return {
-    title: getFrontmatterValue('title'),
-    description: getFrontmatterValue('description'),
-    cover: imageMatch?.[1],
-    category: getFrontmatterValue('category'),
-    categoryOrder: getFrontmatterNumber('categoryOrder'),
-    order: getFrontmatterNumber('order')
+const toStringOrUndefined = (value: unknown): string | undefined => {
+  if (typeof value !== 'string') {
+    return undefined
   }
+
+  const trimmed = value.trim()
+  return trimmed.length > 0 ? trimmed : undefined
+}
+
+const parseArchiveDoc = (raw: string): ParsedArchiveDoc => {
+  const { frontmatter, content } = parseFrontmatter(raw)
+
+  const data: ArchiveDocMeta = {
+    title: toStringOrUndefined(frontmatter.title),
+    description: toStringOrUndefined(frontmatter.description),
+    cover: toStringOrUndefined(frontmatter.cover),
+    category: toStringOrUndefined(frontmatter.category),
+    categoryOrder: toNumberOrUndefined(frontmatter.categoryOrder),
+    order: toNumberOrUndefined(frontmatter.order)
+  }
+
+  return { data, content }
+}
+
+const compareItems = (a: PortfolioItem, b: PortfolioItem): number => {
+  return (
+    (a.categoryOrder ?? Number.POSITIVE_INFINITY) -
+      (b.categoryOrder ?? Number.POSITIVE_INFINITY) ||
+    (a.category ?? '').localeCompare(b.category ?? '') ||
+    (a.order ?? Number.POSITIVE_INFINITY) - (b.order ?? Number.POSITIVE_INFINITY) ||
+    a.title.localeCompare(b.title)
+  )
 }
 
 export const houdini: PortfolioItem[] = Object.entries(archiveDocs)
   .map(([path, raw]) => {
-    const slugMatch = path.match(/portfolio-archive\/(.+)\.md$/)
-    const slug = slugMatch?.[1]
+    const slug = path.split('/').pop()?.replace('.md', '')
 
     if (!slug) {
       return null
     }
 
-    const { title, description, cover, category, categoryOrder, order } = parseArchiveDoc(raw)
+    const { data, content } = parseArchiveDoc(raw)
+    const firstImage = content.match(/!\[[^\]]*\]\(([^)]+)\)/)?.[1]
 
     return {
-      title: title || toTitle(slug),
-      category,
-      categoryOrder,
-      order,
-      tags: category ? [category] : undefined,
-      cover: cover || fallbackCover,
+      title: data.title || toTitle(slug),
+      category: data.category,
+      categoryOrder: data.categoryOrder,
+      order: data.order,
+      tags: data.category ? [data.category] : undefined,
+      cover: data.cover || firstImage || fallbackCover,
       url: `/portfolio-archive/${slug}`,
-      description
+      description: data.description
     } satisfies PortfolioItem
   })
   .filter((item): item is PortfolioItem => item !== null)
-  .sort((a, b) => {
-    const categoryOrderA = a.categoryOrder ?? Number.MAX_SAFE_INTEGER
-    const categoryOrderB = b.categoryOrder ?? Number.MAX_SAFE_INTEGER
-
-    if (categoryOrderA !== categoryOrderB) {
-      return categoryOrderA - categoryOrderB
-    }
-
-    const categoryA = a.category ?? ''
-    const categoryB = b.category ?? ''
-    const categoryCompare = categoryA.localeCompare(categoryB)
-
-    if (categoryCompare !== 0) {
-      return categoryCompare
-    }
-
-    const orderA = a.order ?? Number.MAX_SAFE_INTEGER
-    const orderB = b.order ?? Number.MAX_SAFE_INTEGER
-
-    if (orderA !== orderB) {
-      return orderA - orderB
-    }
-
-    return a.title.localeCompare(b.title)
-  })
+  .sort(compareItems)
