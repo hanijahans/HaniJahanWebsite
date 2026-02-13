@@ -11,21 +11,30 @@ export type PortfolioItem = {
 
 export const houdini: PortfolioItem[] = [
   {
-    title: "Procedural Terrain System",
+    title: "Superformula",
     subtitle: " ",
-    tags: ["Procedural", "Tools", "Terrain"],
-    cover: "/portfolio/procedural-terrain.png",
-    url: "/portfolio_archive/procedural-terrain", // or external if you prefer
+    tags: ["Algorithmic", "", ""],
+    cover: "/portfolio/superformula-01.jpg",
+    url: "/portfolio_archive/algorithm-superformula", // or external if you prefer
     description:
-      "Terrain generator for flexible world layout and stylized ecosystems: flattening, erosion-based detail, and slope-aware scattering for roads, cities, and natural flow."
+      ""
+  },
+    {
+    title: "Space Colonization",
+    subtitle: " ",
+    tags: ["Algorithmic", "Space Colonization", "Tree"],
+    cover: "/portfolio/space-colonization-01.png",
+    url: "/portfolio_archive/algorithm-space-colonization",
+    description:
+      "Space Colonization for stylized trees/veins in NPR-style worlds."
   },
   {
-    title: "Algorithmic Design",
+    title: "Wave Function Collapse",
     subtitle: " ",
-    tags: ["Procedural", "WFC", "Space Colonization"],
-    cover: "/portfolio/technical-systems.png",
-    url: "/portfolio_archive/technical-systems",
+    tags: ["Algorithmic", "WFC", "World Building"],
+    cover: "/portfolio/wfc-01.png",
+    url: "/portfolio_archive/algorithm-wfc",
     description:
-      "Custom procedural logic: Wave Function Collapse for tile-based layouts; Space Colonization for stylized trees/veins in NPR-style worlds."
+      "Wave Function Collapse for tile-based layouts."
   },
 ];

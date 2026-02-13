@@ -1,9 +1,9 @@
 ---
-title: DNA
+title: Dental
 description: 
 ---
 
-# DNA
+# Dental
 ![Preview](/portfolio/dental-01.png)
 
 

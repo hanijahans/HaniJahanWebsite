@@ -20,12 +20,12 @@ export const houdini: PortfolioItem[] = [
       ""
   },
   {
-    title: "Algorithmic Design",
+    title: "Dental",
     subtitle: " ",
-    tags: ["Procedural", "WFC", "Space Colonization"],
-    cover: "/portfolio/technical-systems.png",
-    url: "/portfolio_archive/technical-systems",
+    tags: ["Medical", "", ""],
+    cover: "/portfolio/dental-01.png",
+    url: "/portfolio_archive/medical-dental",
     description:
-      "Custom procedural logic: Wave Function Collapse for tile-based layouts; Space Colonization for stylized trees/veins in NPR-style worlds."
+      ""
   },
 ];
