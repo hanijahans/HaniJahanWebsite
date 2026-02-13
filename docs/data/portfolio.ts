@@ -23,6 +23,8 @@ type ArchiveDocMeta = {
   category?: string
   categoryOrder?: number
   order?: number
+  video?: string
+  videoEmbed?: string
 }
 
 type ParsedArchiveDoc = {
@@ -236,7 +238,9 @@ const parseArchiveDoc = (raw: string): ParsedArchiveDoc => {
     cover: toStringOrUndefined(frontmatter.cover),
     category: toStringOrUndefined(frontmatter.category),
     categoryOrder: toNumberOrUndefined(frontmatter.categoryOrder),
-    order: toNumberOrUndefined(frontmatter.order)
+    order: toNumberOrUndefined(frontmatter.order),
+    video: toStringOrUndefined(frontmatter.video),
+    videoEmbed: toStringOrUndefined(frontmatter.videoEmbed)
   }
 
   return { data, content }
@@ -279,6 +283,8 @@ export const houdini: PortfolioItem[] = Object.entries(archiveDocs)
       order: data.order,
       tags,
       cover: data.cover || firstImage || fallbackCover,
+      video: data.video,
+      videoEmbed: data.videoEmbed,
       url: `/portfolio-archive/${slug}`,
       description
     } satisfies PortfolioItem
