@@ -1,7 +1,7 @@
 ---
 title: DNA
 description: 
-category: Biological Visualization
+category: Medical
 categoryOrder: 3
 order: 1
 ---

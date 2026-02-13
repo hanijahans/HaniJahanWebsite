@@ -5,7 +5,10 @@ layout: page
 ---
 
 <script setup>
-import { houdini } from '/data/portfolio-medical'
+import { getPortfolioByCategory } from '/data/portfolio'
+
+const category = 'Medical'
+const houdini = getPortfolioByCategory(category)
 </script>
 
 <PortfolioPage

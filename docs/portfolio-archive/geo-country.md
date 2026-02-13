@@ -1,7 +1,7 @@
 ---
 title: Multi-Format Geospatial Data Visualization
 description: 
-category: Geospatial Visualization
+category: Geospatial
 categoryOrder: 1
 order: 3
 ---

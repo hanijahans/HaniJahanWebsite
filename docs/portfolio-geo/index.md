@@ -5,7 +5,10 @@ layout: page
 ---
 
 <script setup>
-import { houdini } from '/data/portfolio-geo'
+import { getPortfolioByCategory } from '/data/portfolio'
+
+const category = 'Geospatial'
+const houdini = getPortfolioByCategory(category)
 </script>
 
 <PortfolioPage
