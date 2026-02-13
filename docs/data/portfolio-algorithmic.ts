@@ -14,8 +14,8 @@ export const houdini: PortfolioItem[] = [
     title: "Superformula",
     subtitle: " ",
     tags: ["Algorithmic", "", ""],
-    cover: "/portfolio/superformula-01.jpg",
-    url: "/portfolio_archive/algorithm-superformula", // or external if you prefer
+    cover: "/portfolio/superformula-01.png",
+    url: "/portfolio-archive/algorithm-superformula", // or external if you prefer
     description:
       ""
   },
@@ -24,7 +24,7 @@ export const houdini: PortfolioItem[] = [
     subtitle: " ",
     tags: ["Algorithmic", "Space Colonization", "Tree"],
     cover: "/portfolio/space-colonization-01.png",
-    url: "/portfolio_archive/algorithm-space-colonization",
+    url: "/portfolio-archive/algorithm-space-colonization",
     description:
       "Space Colonization for stylized trees/veins in NPR-style worlds."
   },
@@ -33,7 +33,7 @@ export const houdini: PortfolioItem[] = [
     subtitle: " ",
     tags: ["Algorithmic", "WFC", "World Building"],
     cover: "/portfolio/wfc-01.png",
-    url: "/portfolio_archive/algorithm-wfc",
+    url: "/portfolio-archive/algorithm-wfc",
     description:
       "Wave Function Collapse for tile-based layouts."
   },

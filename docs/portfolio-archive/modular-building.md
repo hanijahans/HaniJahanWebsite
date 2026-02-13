@@ -18,5 +18,3 @@ A procedural terrain generator designed for stylized diorama-style environments.
 - Houdini
 - Procedural workflows
 - Engine export
-
-

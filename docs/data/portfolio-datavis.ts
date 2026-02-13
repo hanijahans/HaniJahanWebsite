@@ -11,18 +11,20 @@ export type PortfolioItem = {
 
 export const houdini: PortfolioItem[] = [
   {
-    title: "Air Mobility",
+    title: "Flights",
     subtitle: "",
-    tags: ["Data", "Visualization"],
-    cover: "/portfolio/data-vis-flights-01.jpg",
+    tags: ["Data Visualization", "Mobility", ],
+    cover: "/portfolio/data-vis-flights-01.png",
+    url: "/portfolio-archive/data-flights",
     description:
       ""
   },
   {
     title: "New York Subway",
     subtitle: "",
-    tags: ["Data", "Visualization"],
+    tags: ["Data Visualization", "Mobility"],
     cover: "/portfolio/data-newyork-subway-01.png",
+    // url: "/portfolio-archive/data-nyc-subway",
     description:
       ""
   },

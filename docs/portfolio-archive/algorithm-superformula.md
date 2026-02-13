@@ -1,9 +1,7 @@
 ---
-title: DNSuperformula
+title: Superformula
 description: 
 ---
 
 # Superformula
-![Preview](/portfolio/superformula-01.jpg)
-
-
+![Preview](/portfolio/superformula-01.png)

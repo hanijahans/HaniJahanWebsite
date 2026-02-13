@@ -15,7 +15,7 @@ export const houdini: PortfolioItem[] = [
     subtitle: " ",
     tags: ["", "", ""],
     cover: "/portfolio/dna-01.png",
-    url: "/portfolio_archive/bio-dna", // or external if you prefer
+    url: "/portfolio-archive/bio-dna", // or external if you prefer
     description:
       ""
   },
@@ -24,7 +24,7 @@ export const houdini: PortfolioItem[] = [
     subtitle: " ",
     tags: ["Medical", "", ""],
     cover: "/portfolio/dental-01.png",
-    url: "/portfolio_archive/medical-dental",
+    url: "/portfolio-archive/medical-dental",
     description:
       ""
   },

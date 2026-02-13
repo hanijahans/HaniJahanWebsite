@@ -15,6 +15,7 @@ export const houdini: PortfolioItem[] = [
     subtitle: "Data → Visualization",
     tags: ["Geospatial", "Data", "Visualization"],
     cover: "/portfolio/geo-data-geojson.png",
+    // url: "/portfolio-archive/data",
     description:
       "Visualization pipeline supporting multiple data types, translating raw datasets into interactive, readable spatial views."
   },
@@ -23,6 +24,7 @@ export const houdini: PortfolioItem[] = [
     subtitle: "Point Cloud Rendering",
     tags: ["LiDAR", "Point Cloud", "Visualization"],
     cover: "/portfolio/geo-data-lidar-vis.png",
+    // url: "/portfolio-archive/data",
     description:
       "LiDAR point-cloud rendering workflows for dense geospatial scans, optimized for clarity and scale."
   },
@@ -31,6 +33,7 @@ export const houdini: PortfolioItem[] = [
     subtitle: "Mapbox / OpenTopo / Satellite",
     tags: ["Streaming", "Terrain", "Data"],
     cover: "/portfolio/geo-data-terrain-automated.png",
+    // url: "/portfolio-archive/data",
     description:
       "Automated download and streaming pipeline for terrain data, enabling on-demand ingestion from Mapbox, OpenTopo, and satellite providers."
   },
