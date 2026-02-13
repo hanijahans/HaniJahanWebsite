@@ -13,31 +13,13 @@ export type PortfolioItem = {
 
 export const houdini: PortfolioItem[] = [
   {
-    title: "Procedural Terrain System",
+    title: "World Lattice",
     subtitle: " ",
-    tags: ["Procedural", "Tools", "Terrain"],
-    cover: "/portfolio/procedural-terrain.png",
-    videoEmbed: "https://www.youtube.com/embed/GBCFRYMkSrY?rel=0",
-    url: "/portfolio-archive/procedural-terrain", // or external if you prefer
+    tags: ["Game Dev", "", ""],
+    cover: "/portfolio/worldlattice-01.png",
+    url: "https://hanijahan.itch.io/worldlattice", // or external if you prefer
     description:
-      "Terrain generator for flexible world layout and stylized ecosystems: flattening, erosion-based detail, and slope-aware scattering for roads, cities, and natural flow."
+      ""
   },
-  {
-    title: "Procedural Vegetation Toolkit",
-    subtitle: " ",
-    tags: ["Procedural", "Tools", "Vegetation"],
-    cover: "/portfolio/procedural-vegetation.png",
-    url: "/portfolio-archive/procedural-vegetation",
-    description:
-      "Fully procedural vegetation tools with control over variation and instancing. Scales from dense forests to decorative foliage; built for fast iteration and visual diversity."
-  },
-  {
-    title: "Modular Building Generator",
-    subtitle: " ",
-    tags: ["Procedural", "Tools", "Modular", "Building"],
-    cover: "/portfolio/modular-building.png",
-    url: "/portfolio-archive/modular-building",
-    description:
-      "Generates structures from simple grids: customizable facades, floors, roof styles, and material variation. Game-ready, modular, and iteration-friendly."
-  },
+
 ];
