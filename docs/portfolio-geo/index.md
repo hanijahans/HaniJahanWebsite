@@ -5,12 +5,12 @@ layout: page
 ---
 
 <script setup>
-import { houdini } from '/data/portfolio2'
+import { houdini } from '/data/portfolio-geo'
 </script>
 
 <PortfolioPage
-  title="PORTFOLIO B"
-  description="Simulation / Digital Twin / Defense / Autonomous Systems"
+  title="PORTFOLIO"
+  description="Geospatial Data Visualization / Mapping / Analytics"
   youtube-id=""
   :items="houdini"
 />

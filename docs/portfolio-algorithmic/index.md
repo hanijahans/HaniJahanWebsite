@@ -5,12 +5,12 @@ layout: page
 ---
 
 <script setup>
-import { houdini } from '/data/portfolio3'
+import { houdini } from '/data/portfolio-algorithmic'
 </script>
 
 <PortfolioPage
-  title="PORTFOLIO C"
-  description="Geospatial Data Visualization / Mapping / Analytics"
+  title="PORTFOLIO"
+  description="Math / Algorithms"
   youtube-id=""
   :items="houdini"
 />
