@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { houdini, type PortfolioItem } from '../../../data/portfolio1'
+import { houdini, type PortfolioItem } from '../../../data/portfolio'
 
 const props = defineProps<{ items?: PortfolioItem[] }>()
 const gridItems = computed(() => props.items ?? houdini)
