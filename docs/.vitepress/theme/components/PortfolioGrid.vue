@@ -1,19 +1,72 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import { houdini, type PortfolioItem } from '../../../data/portfolio'
 
 const props = defineProps<{ items?: PortfolioItem[] }>()
 const gridItems = computed(() => props.items ?? houdini)
+
+const youtubeFrames = ref<Record<number, HTMLIFrameElement | null>>({})
+const htmlVideos = ref<Record<number, HTMLVideoElement | null>>({})
+
+function withJsApiAndLoop(url: string) {
+  const result = new URL(url)
+  const videoId = result.pathname.split('/').filter(Boolean).pop()
+
+  result.searchParams.set('enablejsapi', '1')
+  result.searchParams.set('mute', '1')
+  result.searchParams.set('loop', '1')
+
+  if (videoId) {
+    result.searchParams.set('playlist', videoId)
+  }
+
+  return result.toString()
+}
+
+function onCardEnter(index: number, item: PortfolioItem) {
+  if (item.videoEmbed) {
+    const frame = youtubeFrames.value[index]
+    frame?.contentWindow?.postMessage(
+      JSON.stringify({ event: 'command', func: 'playVideo', args: [] }),
+      '*'
+    )
+    return
+  }
+
+  htmlVideos.value[index]?.play().catch(() => {
+    // noop: browser autoplay policy can still block in edge cases.
+  })
+}
+
+function onCardLeave(index: number, item: PortfolioItem) {
+  if (item.videoEmbed) {
+    const frame = youtubeFrames.value[index]
+    frame?.contentWindow?.postMessage(
+      JSON.stringify({ event: 'command', func: 'pauseVideo', args: [] }),
+      '*'
+    )
+    return
+  }
+
+  htmlVideos.value[index]?.pause()
+}
 </script>
 
 <template>
   <div class="portfolio-grid">
-    <div v-for="(it, i) in gridItems" :key="i" class="card">
+    <div
+      v-for="(it, i) in gridItems"
+      :key="i"
+      class="card"
+      @mouseenter="onCardEnter(i, it)"
+      @mouseleave="onCardLeave(i, it)"
+    >
       <div v-if="it.videoEmbed || it.video" class="cover">
         <div class="cover-media">
           <iframe
             v-if="it.videoEmbed"
-            :src="it.videoEmbed"
+            :ref="(el) => youtubeFrames[i] = el as HTMLIFrameElement | null"
+            :src="withJsApiAndLoop(it.videoEmbed)"
             :title="`${it.title} video`"
             loading="lazy"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -21,11 +74,12 @@ const gridItems = computed(() => props.items ?? houdini)
           />
           <video
             v-else
+            :ref="(el) => htmlVideos[i] = el as HTMLVideoElement | null"
             :src="it.video"
             :poster="it.cover"
             muted
             playsinline
-            controls
+            loop
           />
         </div>
       </div>
