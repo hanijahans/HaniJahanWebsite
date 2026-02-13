@@ -2,13 +2,14 @@
 title: Contact
 ---
 
-I’m Hani Jahan — an independent technical designer & worldbuilder creating tools and systems that turn ideas into worlds. My work focuses on **worldbuilding systems**, **procedural generation**, and highly reusable **modular content** — helping teams and solo creators bring ambitious ideas to life faster.
+I’m Hani Jahan — a technical designer creating tools and systems that turn ideas into worlds. My work focuses on **worldbuilding systems**, **procedural generation**, and highly reusable **modular content** — helping teams and solo creators bring ambitious ideas to life faster.
 
 **Core Values**: System Thinking · Functionality · Modularity
 
 ---
 
 ✉ **Email**: [hani.jahan.design@gmail.com](mailto:hani.jahan.design@gmail.com)  
+<!--
 For collaborations, project proposals, or just to say hi.
 
 ---
@@ -24,3 +25,4 @@ Want to chat, share your work, or connect with other creators?
 Get sneak peeks, dev updates, and experimental worlds — straight from the source.
 
 <div class="ml-embedded" data-form="FhCHfn"></div>
+-->
