@@ -4,6 +4,6 @@ description:
 ---
 
 # Wave Function Collapse
-![Preview](/portfolio/wfc-01.jpg)
+![Preview](/portfolio/wfc-01.png)
 
 

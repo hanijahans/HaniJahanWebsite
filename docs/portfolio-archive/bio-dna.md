@@ -4,6 +4,6 @@ description:
 ---
 
 # DNA
-![Preview](/portfolio/dental-01.png)
+![Preview](/portfolio/dna-01.png)
 
 

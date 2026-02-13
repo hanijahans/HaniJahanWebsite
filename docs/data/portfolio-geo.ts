@@ -19,12 +19,12 @@ export const houdini: PortfolioItem[] = [
       "Visualization pipeline supporting multiple data types, translating raw datasets into interactive, readable spatial views."
   },
   {
-    title: "Scale-Accurate Terrain Synthesis",
-    subtitle: "DEM + Satellite Data",
-    tags: ["Terrain", "DEM", "Satellite"],
-    cover: "/portfolio/geo-data-terrain-accuracy.png",
+    title: "LiDAR Visualization",
+    subtitle: "Point Cloud Rendering",
+    tags: ["LiDAR", "Point Cloud", "Visualization"],
+    cover: "/portfolio/geo-data-lidar-vis.png",
     description:
-      "Terrain synthesis driven by DEM and satellite sources to preserve scale accuracy from regional context down to local detail."
+      "LiDAR point-cloud rendering workflows for dense geospatial scans, optimized for clarity and scale."
   },
   {
     title: "On-Demand Terrain Streaming",
@@ -33,29 +33,5 @@ export const houdini: PortfolioItem[] = [
     cover: "/portfolio/geo-data-terrain-automated.png",
     description:
       "Automated download and streaming pipeline for terrain data, enabling on-demand ingestion from Mapbox, OpenTopo, and satellite providers."
-  },
-  {
-    title: "On-Demand City Data Streaming",
-    subtitle: "Auto Download Tooling",
-    tags: ["Streaming", "City", "Data"],
-    cover: "/portfolio/geo-data-city-automated.png",
-    description:
-      "Auto-download toolchain for city-scale datasets, delivering fresh data into visualization and simulation workflows."
-  },
-  {
-    title: "GeoJSON Reader + Visualization",
-    subtitle: "Vector Data Pipelines",
-    tags: ["GeoJSON", "Vector", "Visualization"],
-    cover: "/portfolio/geo-data-geojson.png",
-    description:
-      "GeoJSON ingestion with interactive visualization to explore and validate vector-based geospatial datasets."
-  },
-  {
-    title: "LiDAR Visualization",
-    subtitle: "Point Cloud Rendering",
-    tags: ["LiDAR", "Point Cloud", "Visualization"],
-    cover: "/portfolio/geo-data-lidar-vis.png",
-    description:
-      "LiDAR point-cloud rendering workflows for dense geospatial scans, optimized for clarity and scale."
   },
 ];
