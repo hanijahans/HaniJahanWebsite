@@ -8,5 +8,3 @@ order: 3
 
 # Multi-Format Geospatial Data Visualization
 ![Preview](/portfolio/geo-data-geojson.png)
-
-

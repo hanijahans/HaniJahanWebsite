@@ -8,5 +8,3 @@ order: 2
 
 # LiDAR Visualization
 ![Preview](/portfolio/geo-data-lidar-vis.png)
-
-

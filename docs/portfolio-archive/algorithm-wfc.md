@@ -2,7 +2,7 @@
 title: Wave Function Collapse
 description: 
 category: Algorithmic
-categoryOrder: 1
+categoryOrder: 4
 order: 3
 ---
 

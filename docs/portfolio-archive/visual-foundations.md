@@ -7,7 +7,7 @@ order: 2
 ---
 
 # Procedural Terrain System
-![Preview](/portfolio/visual-foundations.jpg)
+![Preview](/portfolio/visual-foundations.png)
 
 A procedural terrain generator designed for stylized diorama-style environments.
 

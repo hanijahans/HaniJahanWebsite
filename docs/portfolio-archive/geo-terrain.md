@@ -8,5 +8,3 @@ order: 1
 
 # On-Demand Terrain Streaming
 ![Preview](/portfolio/geo-data-terrain-automated.png)
-
-

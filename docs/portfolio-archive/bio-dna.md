@@ -2,7 +2,7 @@
 title: DNA
 description: 
 category: Biological Visualization
-categoryOrder: 6
+categoryOrder: 3
 order: 1
 ---
 

@@ -2,7 +2,7 @@
 title: Superformula
 description: 
 category: Algorithmic
-categoryOrder: 1
+categoryOrder: 4
 order: 1
 ---
 

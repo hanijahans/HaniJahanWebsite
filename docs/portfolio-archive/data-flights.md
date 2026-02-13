@@ -2,7 +2,7 @@
 title: Flights
 description: 
 category: Data Visualization
-categoryOrder: 4
+categoryOrder: 2
 order: 1
 ---
 

@@ -8,5 +8,3 @@ order: 4
 
 # New York Buildings
 ![Preview](/portfolio/geo-data-lidar-vis.png)
-
-
