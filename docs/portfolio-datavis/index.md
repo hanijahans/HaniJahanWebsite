@@ -5,7 +5,10 @@ layout: page
 ---
 
 <script setup>
-import { houdini } from '/data/portfolio-datavis'
+import { getPortfolioByCategory } from '/data/portfolio'
+
+const category = 'Data Visualization'
+const houdini = getPortfolioByCategory(category)
 </script>
 
 <PortfolioPage

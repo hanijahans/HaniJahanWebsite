@@ -170,3 +170,6 @@ export const houdini: PortfolioItem[] = Object.entries(archiveDocs)
   })
   .filter((item): item is PortfolioItem => item !== null)
   .sort(compareItems)
+
+export const getPortfolioByCategory = (category: string): PortfolioItem[] =>
+  houdini.filter((item) => item.category === category)
