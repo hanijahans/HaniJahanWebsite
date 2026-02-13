@@ -20,7 +20,7 @@ how minimal parametric rules unfold into rich visual diversity.
 A common polar expression is:
 
 [
-r(\phi)=\left(\left|\frac{\cos\left(\frac{m\phi}{4}\right)}{a}\right|^{n_2}+\left|\frac{\sin\left(\frac{m\phi}{4}\right)}{b}\right|^{n_3}\right)^{-\frac{1}{n_1}}
+r(phi) = ( |cos(m·phi/4)/a|^n2 + |sin(m·phi/4)/b|^n3 )^(-1/n1)
 ]
 
 Key parameters:
