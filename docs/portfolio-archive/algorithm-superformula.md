@@ -1,6 +1,9 @@
 ---
 title: Superformula
 description: 
+category: Algorithmic
+categoryOrder: 1
+order: 1
 ---
 
 # Superformula

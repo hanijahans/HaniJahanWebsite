@@ -1,6 +1,9 @@
 ---
 title: Flights
 description: 
+category: Data Visualization
+categoryOrder: 4
+order: 1
 ---
 
 # Flights

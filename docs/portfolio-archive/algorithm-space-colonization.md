@@ -1,6 +1,9 @@
 ---
 title: Space Colonization
 description: 
+category: Algorithmic
+categoryOrder: 1
+order: 2
 ---
 
 # Space Colonization

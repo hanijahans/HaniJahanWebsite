@@ -1,5 +1,8 @@
 export type PortfolioItem = {
   title: string
+  category?: string
+  categoryOrder?: number
+  order?: number
   subtitle?: string
   role?: string
   year?: string
@@ -15,6 +18,9 @@ type ArchiveDocMeta = {
   title?: string
   description?: string
   cover?: string
+  category?: string
+  categoryOrder?: number
+  order?: number
 }
 
 const archiveDocs = import.meta.glob('../portfolio-archive/*.md', {
@@ -46,12 +52,25 @@ const parseArchiveDoc = (raw: string): ArchiveDocMeta => {
     return value.replace(/^['\"]|['\"]$/g, '')
   }
 
+  const getFrontmatterNumber = (key: string): number | undefined => {
+    const value = getFrontmatterValue(key)
+    if (!value) {
+      return undefined
+    }
+
+    const parsed = Number(value)
+    return Number.isNaN(parsed) ? undefined : parsed
+  }
+
   const imageMatch = raw.match(/!\[[^\]]*\]\(([^)]+)\)/)
 
   return {
     title: getFrontmatterValue('title'),
     description: getFrontmatterValue('description'),
-    cover: imageMatch?.[1]
+    cover: imageMatch?.[1],
+    category: getFrontmatterValue('category'),
+    categoryOrder: getFrontmatterNumber('categoryOrder'),
+    order: getFrontmatterNumber('order')
   }
 }
 
@@ -64,14 +83,41 @@ export const houdini: PortfolioItem[] = Object.entries(archiveDocs)
       return null
     }
 
-    const { title, description, cover } = parseArchiveDoc(raw)
+    const { title, description, cover, category, categoryOrder, order } = parseArchiveDoc(raw)
 
     return {
       title: title || toTitle(slug),
+      category,
+      categoryOrder,
+      order,
       cover: cover || fallbackCover,
       url: `/portfolio-archive/${slug}`,
       description
     } satisfies PortfolioItem
   })
   .filter((item): item is PortfolioItem => item !== null)
-  .sort((a, b) => a.title.localeCompare(b.title))
+  .sort((a, b) => {
+    const categoryOrderA = a.categoryOrder ?? Number.MAX_SAFE_INTEGER
+    const categoryOrderB = b.categoryOrder ?? Number.MAX_SAFE_INTEGER
+
+    if (categoryOrderA !== categoryOrderB) {
+      return categoryOrderA - categoryOrderB
+    }
+
+    const categoryA = a.category ?? ''
+    const categoryB = b.category ?? ''
+    const categoryCompare = categoryA.localeCompare(categoryB)
+
+    if (categoryCompare !== 0) {
+      return categoryCompare
+    }
+
+    const orderA = a.order ?? Number.MAX_SAFE_INTEGER
+    const orderB = b.order ?? Number.MAX_SAFE_INTEGER
+
+    if (orderA !== orderB) {
+      return orderA - orderB
+    }
+
+    return a.title.localeCompare(b.title)
+  })

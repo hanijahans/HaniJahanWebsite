@@ -1,6 +1,9 @@
 ---
 title: Dental
 description: 
+category: Medical
+categoryOrder: 5
+order: 1
 ---
 
 # Dental

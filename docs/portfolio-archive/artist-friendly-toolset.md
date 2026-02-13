@@ -1,6 +1,9 @@
 ---
 title: Procedural Terrain System
 description: Diorama-style terrain generator with flattening, erosion, and slope-aware scattering.
+category: Rest
+categoryOrder: 7
+order: 1
 ---
 
 # Procedural Terrain System
