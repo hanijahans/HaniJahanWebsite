@@ -4,8 +4,23 @@ description:
 category: Indie Game
 categoryOrder: 6
 order: 1
-videoEmbed: "https://www.youtube.com/embed/n2kaECKiSeA?mute=1&loop=1&playlist=GBCFRYMkSrY&rel=0"
+cover: "/portfolio/worldlattice-01.png"
+mediaPreview: "hover"
+videoEmbed: "https://www.youtube.com/embed/n2kaECKiSeA?autoplay=1&mute=1&loop=1&playlist=GBCFRYMkSrY&rel=0"
 ---
 
-# On-Demand Terrain Streaming
+# WorldLattice
 ![Preview](/portfolio/worldlattice-01.png)
+Playable at https://hanijahan.itch.io/worldlattice
+
+
+<iframe
+  style="width: 100%; aspect-ratio: 16 / 9; height: auto;"
+  src="https://www.youtube.com/embed/n2kaECKiSeA"
+  title="On-Demand Terrain Streaming Demo"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
+></iframe>
+

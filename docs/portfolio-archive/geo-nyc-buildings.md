@@ -12,4 +12,15 @@ videoEmbed: "https://www.youtube.com/embed/T9aQd-S9gjw?autoplay=1&mute=1&loop=1&
 <!-- comment -->
 
 # New York Buildings
+
+<iframe
+  style="width: 100%; aspect-ratio: 16 / 9; height: auto;"
+  src="https://www.youtube.com/embed/T9aQd-S9gjw"
+  title="On-Demand Terrain Streaming Demo"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
+></iframe>
+
 ![Preview](/portfolio/geo-data-nyc-buildings.png)

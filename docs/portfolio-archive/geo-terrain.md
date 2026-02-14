@@ -13,9 +13,9 @@ videoEmbed: "https://www.youtube.com/embed/Ez4Oh8gTc3U?autoplay=1&mute=1&loop=1&
 
 # On-Demand Terrain Streaming
 This project streams and assembles terrain tiles on demand so users can explore large landscapes without loading everything upfront.
+
 <iframe
-  width="100%"
-  height="420"
+  style="width: 100%; aspect-ratio: 16 / 9; height: auto;"
   src="https://www.youtube.com/embed/Ez4Oh8gTc3U"
   title="On-Demand Terrain Streaming Demo"
   frameborder="0"
