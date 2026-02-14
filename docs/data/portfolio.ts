@@ -10,6 +10,7 @@ export type PortfolioItem = {
   cover: string
   video?: string
   videoEmbed?: string
+  mediaPreview?: 'always' | 'hover'
   url?: string
   description?: string
 }
@@ -25,6 +26,7 @@ type ArchiveDocMeta = {
   order?: number
   video?: string
   videoEmbed?: string
+  mediaPreview?: string
 }
 
 type ParsedArchiveDoc = {
@@ -147,6 +149,12 @@ const toStringOrUndefined = (value: unknown): string | undefined => {
   return trimmed.length > 0 ? trimmed : undefined
 }
 
+const toMediaPreviewMode = (value: unknown): PortfolioItem['mediaPreview'] => {
+  if (typeof value !== 'string') return undefined
+  const normalized = value.trim().toLowerCase()
+  return normalized === 'hover' || normalized === 'always' ? normalized : undefined
+}
+
 const toStringArrayOrUndefined = (value: unknown): string[] | undefined => {
   if (Array.isArray(value)) {
     const arr = value.map((v) => (typeof v === 'string' ? v.trim() : '')).filter(Boolean)
@@ -240,7 +248,8 @@ const parseArchiveDoc = (raw: string): ParsedArchiveDoc => {
     categoryOrder: toNumberOrUndefined(frontmatter.categoryOrder),
     order: toNumberOrUndefined(frontmatter.order),
     video: toStringOrUndefined(frontmatter.video),
-    videoEmbed: toStringOrUndefined(frontmatter.videoEmbed)
+    videoEmbed: toStringOrUndefined(frontmatter.videoEmbed),
+    mediaPreview: toStringOrUndefined(frontmatter.mediaPreview)
   }
 
   return { data, content }
@@ -285,6 +294,7 @@ export const houdini: PortfolioItem[] = Object.entries(archiveDocs)
       cover: data.cover || firstImage || fallbackCover,
       video: data.video,
       videoEmbed: data.videoEmbed,
+      mediaPreview: toMediaPreviewMode(data.mediaPreview),
       url: `/portfolio-archive/${slug}`,
       description
     } satisfies PortfolioItem

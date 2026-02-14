@@ -7,6 +7,7 @@ const gridItems = computed(() => props.items ?? houdini)
 
 const youtubeFrames = ref<Record<number, HTMLIFrameElement | null>>({})
 const htmlVideos = ref<Record<number, HTMLVideoElement | null>>({})
+const hoveredCards = ref<Record<number, boolean>>({})
 
 function withJsApiAndLoop(url: string) {
   const result = new URL(url)
@@ -24,6 +25,7 @@ function withJsApiAndLoop(url: string) {
 }
 
 function onCardEnter(index: number, item: PortfolioItem) {
+  hoveredCards.value[index] = true
   if (item.videoEmbed) {
     const frame = youtubeFrames.value[index]
     frame?.contentWindow?.postMessage(
@@ -39,6 +41,7 @@ function onCardEnter(index: number, item: PortfolioItem) {
 }
 
 function onCardLeave(index: number, item: PortfolioItem) {
+  hoveredCards.value[index] = false
   if (item.videoEmbed) {
     const frame = youtubeFrames.value[index]
     frame?.contentWindow?.postMessage(
@@ -50,6 +53,18 @@ function onCardLeave(index: number, item: PortfolioItem) {
 
   htmlVideos.value[index]?.pause()
 }
+
+function shouldShowMedia(index: number, item: PortfolioItem): boolean {
+  if (!(item.videoEmbed || item.video)) return false
+
+  // Default keeps previous behavior; hover mode displays the cover image until hover.
+  if (item.mediaPreview === 'hover') {
+    return Boolean(hoveredCards.value[index])
+  }
+
+  return true
+}
+
 </script>
 
 <template>
@@ -62,7 +77,7 @@ function onCardLeave(index: number, item: PortfolioItem) {
       @mouseleave="onCardLeave(i, it)"
     >
       <div v-if="it.videoEmbed || it.video" class="cover">
-        <div class="cover-media">
+        <div v-if="shouldShowMedia(i, it)" class="cover-media">
           <iframe
             v-if="it.videoEmbed"
             :ref="(el) => youtubeFrames[i] = el as HTMLIFrameElement | null"
@@ -82,6 +97,12 @@ function onCardLeave(index: number, item: PortfolioItem) {
             loop
           />
         </div>
+        <img
+          v-else
+          :src="it.cover"
+          :alt="it.title"
+          loading="lazy"
+        />
       </div>
       <a v-else-if="it.url" :href="it.url" class="cover">
         <img
