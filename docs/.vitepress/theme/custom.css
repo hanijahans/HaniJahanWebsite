@@ -329,3 +329,48 @@ align-items: flex-start;
   letter-spacing: 0.02em;
   text-transform: uppercase;
 }
+
+.image-row2 {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 1.5rem 0;
+}
+
+.image-row2 img {
+  flex: 1 1 300px;
+  max-width: 300px;
+  height: auto;
+}
+
+.image-row3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 1.5rem 0;
+}
+
+.image-row3 img {
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 960px) {
+  .image-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .image-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.project-video {
+  width: 100%;
+  max-width: 900px;
+  border-radius: 12px;
+  display: block;
+  margin: 1.5rem 0;
+}
