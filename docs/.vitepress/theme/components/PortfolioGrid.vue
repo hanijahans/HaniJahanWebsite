@@ -69,13 +69,19 @@ function shouldShowMedia(index: number, item: PortfolioItem): boolean {
 
 <template>
   <div class="portfolio-grid">
-    <div
+    <component
       v-for="(it, i) in gridItems"
       :key="i"
+      :is="it.url ? 'a' : 'div'"
       class="card"
+      :class="{ 'card-clickable': Boolean(it.url) }"
+      :href="it.url || undefined"
       @mouseenter="onCardEnter(i, it)"
       @mouseleave="onCardLeave(i, it)"
+      :aria-label="it.url ? `Open ${it.title} details` : undefined"
     >
+      <span v-if="it.url" class="corner" aria-hidden="true">↗</span>
+
       <div v-if="it.videoEmbed || it.video" class="cover">
         <div v-if="shouldShowMedia(i, it)" class="cover-media">
           <iframe
@@ -104,13 +110,6 @@ function shouldShowMedia(index: number, item: PortfolioItem): boolean {
           loading="lazy"
         />
       </div>
-      <a v-else-if="it.url" :href="it.url" class="cover">
-        <img
-          :src="it.cover"
-          :alt="it.title"
-          loading="lazy"
-        />
-      </a>
       <div v-else class="cover">
         <img
           :src="it.cover"
@@ -119,32 +118,21 @@ function shouldShowMedia(index: number, item: PortfolioItem): boolean {
         />
       </div>
       <div class="body">
-        <a v-if="it.url" :href="it.url" class="body-link">
-          <h3 class="title">{{ it.title }}</h3>
-          <p v-if="it.subtitle" class="subtitle">{{ it.subtitle }}</p>
-          <p v-if="it.description" class="desc">{{ it.description }}</p>
-          <div class="meta">
-            <span v-if="it.role">{{ it.role }}</span>
-            <span v-if="it.year">· {{ it.year }}</span>
-          </div>
-          <div v-if="it.tags?.length" class="tags">
-            <span v-for="t in it.tags" :key="t" class="tag">{{ t }}</span>
-          </div>
-        </a>
-        <template v-else>
-          <h3 class="title">{{ it.title }}</h3>
-          <p v-if="it.subtitle" class="subtitle">{{ it.subtitle }}</p>
-          <p v-if="it.description" class="desc">{{ it.description }}</p>
-          <div class="meta">
-            <span v-if="it.role">{{ it.role }}</span>
-            <span v-if="it.year">· {{ it.year }}</span>
-          </div>
-          <div v-if="it.tags?.length" class="tags">
-            <span v-for="t in it.tags" :key="t" class="tag">{{ t }}</span>
-          </div>
-        </template>
+        <h3 class="title">{{ it.title }}</h3>
+        <p v-if="it.subtitle" class="subtitle">{{ it.subtitle }}</p>
+        <p v-if="it.description" class="desc">{{ it.description }}</p>
+        <div class="meta">
+          <span v-if="it.role">{{ it.role }}</span>
+          <span v-if="it.year">· {{ it.year }}</span>
+        </div>
+        <div v-if="it.tags?.length" class="tags">
+          <span v-for="t in it.tags" :key="t" class="tag">{{ t }}</span>
+        </div>
+        <div v-if="it.url" class="cta">
+          View project details <span aria-hidden="true">→</span>
+        </div>
       </div>
-    </div>
+    </component>
   </div>
 </template>
 
@@ -178,6 +166,35 @@ function shouldShowMedia(index: number, item: PortfolioItem): boolean {
   flex-direction: column;
 }
 .card:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,.08); }
+
+.card-clickable {
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+}
+
+.card-clickable:focus-visible {
+  outline: 2px solid var(--vp-c-brand-1);
+  outline-offset: 2px;
+}
+
+.corner {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 0.9rem;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, .06);
+  border: 1px solid var(--vp-c-divider);
+  backdrop-filter: blur(6px);
+}
+
+.card:hover .corner {
+  transform: translateY(-1px);
+}
+
 .cover img {
   display: block;
   width: 100%;
@@ -196,15 +213,26 @@ function shouldShowMedia(index: number, item: PortfolioItem): boolean {
   border: 0;
 }
 .body { padding: 12px 14px; }
-.body-link {
-  display: block;
-  color: inherit;
-  text-decoration: none;
-}
 .title { margin:0 0 4px; font-size: 1rem; line-height:1.2; }
 .subtitle { margin:0 0 6px; opacity:.8; }
 .desc { margin:0 0 8px; font-size:.92rem; opacity:.9; }
 .meta { font-size:.85rem; opacity:.8; margin-bottom:8px; }
 .tags { display:flex; flex-wrap:wrap; gap:6px; }
 .tag { font-size:.75rem; padding:2px 8px; border-radius:999px; border:1px solid var(--vp-c-divider); }
+
+.cta {
+  margin-top: 12px;
+  font-size: .84rem;
+  font-weight: 600;
+  color: var(--vp-c-brand-1);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: gap .15s ease, opacity .15s ease;
+  opacity: .95;
+}
+
+.card-clickable:hover .cta {
+  gap: 7px;
+}
 </style>
