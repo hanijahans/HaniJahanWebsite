@@ -1,70 +1,94 @@
 ---
-title: Spatial Accessibility in New York City
-description: A procedural analysis of subway infrastructure, school districts, and residential buildings to support neighborhood-level decision-making.
+title: New York Subway
+description: 
 category: Data Visualization
 categoryOrder: 2
 order: 2
 ---
 
-# Spatial Accessibility in New York City
+# New York Subway
+This project constructs a visual exploration system for understanding the spatial structure of New York City's subway network.
+
+Rather than presenting routes as static maps, it derives layered spatial relationships — lines, entrances, access fields, policy boundaries, and ridership intensity — to make hidden structural patterns legible.
+
+The focus is not on conclusions, but on clarity: how infrastructure, access, and administrative boundaries coexist within the same spatial system.
 
 ![Preview](/portfolio/data-newyork-subway-01.png)
 
-## Research Question
+This project visualize how subway infrastructure, pedestrian access, and policy boundaries intersect
 
-How can families evaluate neighborhood suitability based on transit access, school district boundaries, and building-level proximity to subway infrastructure?
+## System Process
 
-Urban decisions are often made using fragmented datasets. This project integrates transit lines, entrances, school districts, building footprints, and ridership density into a unified spatial model.
+Inputs:
+- NYC building footprint dataset (polygon geometry)
+- GTFS subway lines + stations
+- Station entrances (point dataset)
+- School district polygons
+- Station-level ridership table
 
-## Method
+Processing:
+- Geometry cleaning and projection normalization
+- Attribute extraction (height, footprint area if available)
+- Aggregation by block / grid / spatial clustering
+- Optional extrusion or density field conversion
 
-Using Houdini as a procedural geospatial engine:
 
-- Imported NYC subway lines and entrances
-- Mapped building footprints against underground rail paths
-- Analyzed overlap between school districts and transit access
-- Visualized station-level ridership density
-- Computed spatial intersections at building resolution
+Derived Layers
+- Entrances → Access Fields
+Point data expanded into walk-distance influence zones
+- Access Fields × District Polygons
+Intersection operations reveal areas of overlap between mobility and administrative boundaries.
+- Lines → Proximity Zones
+Distance-based classification of nearby buildings.
+- Ridership → Intensity Scaling
+Station metrics normalized and mapped to visual weight.
 
-## 1. Buildings Above Subway Infrastructure
+Output:
+- Scalable urban structure visualization
+- Multi-scale rendering (macro to micro)
 
-Buildings are spatially intersected with subway line geometry.
+### System Logic
+- The subway network is treated as a layered spatial system:
+- Lines define structural topology.
+- Entrances define real pedestrian access.
+- Buffers convert points into spatial influence fields.
+- Policy districts introduce administrative segmentation.
+- Ridership scales intensity within the network.
 
-Color encoding highlights structures directly above underground tracks.
+Each layer operates independently but can be composed to study interactions between infrastructure, access, and governance.
+
+LINES → ENTRANCES → ACCESS FIELD
+                 ↓
+          DISTRICT INTERSECTION
+                 ↓
+            RIDERSHIP SCALE
+
+## Network Skeleton (Lines)
+What it reveals: trunk corridors, borough connectivity, redundancy vs fragility
 
 <div class="image-row2">
-  <img src="/portfolio/data-newyork-subway-lines-02.png">
-  <img src="/portfolio/data-newyork-subway-lines-03.png">
+  <img src="/portfolio/data-newyork-subway-lines-02.png" alt="Subway lines map 02">
+  <img src="/portfolio/data-newyork-subway-lines-03.png" alt="Subway lines map 03">
 </div>
 
-This reveals potential implications for noise exposure and infrastructure adjacency.
+## Access Field (Entrances → Walk Catchments)
+What it reveals: “real access” is entrances, not lines
 
-## 2. Transit Access Within School Districts
+![Preview](/portfolio/data-newyork-subway-entrances-02.png)
 
-Subway entrances are mapped against school district boundaries to evaluate transit accessibility per district.
+
+## Boundary Intersection (School Districts × Access Field)
+What it reveals: where policy boundaries don’t match mobility reality
 
 <div class="image-row3">
-  <img src="/portfolio/data-newyork-subway-entrances-02.png">
-  <img src="/portfolio/data-newyork-boundaries-school-districts-3d-01.png">
-  <img src="/portfolio/data-newyork-subway-entrances-03.png">
+  <img src="/portfolio/data-newyork-subway-entrances-02.png" alt="Subway lines map 02">
+  <img src="/portfolio/data-newyork-boundaries-school-districts-3d-01.png" alt="Subway lines map 03">
+  <img src="/portfolio/data-newyork-subway-entrances-03.png" alt="Subway lines map 03">
 </div>
 
-This enables district-level comparison of mobility access.
-
-## 3. Ridership Density
-
-Station-level ridership is visualized to understand commuter pressure and spatial intensity.
+## Load & Hierarchy (Ridership)
+What it reveals: hubs, spokes, imbalance, “center of gravity”
 
 <video controls loop>
   <source src="/portfolio/data-newyork-subway-ridership-01.mp4" type="video/mp4">
 </video>
-
-## Outcome
-
-This project demonstrates a procedural approach to civic data integration, allowing spatial queries such as:
-
-- Which buildings sit directly above transit lines?
-- Which school districts provide high subway accessibility?
-- Where are high-density commuter nodes located?
-
-The system is modular and extensible for additional civic datasets.
