@@ -13,7 +13,9 @@ Rather than presenting routes as static maps, it derives layered spatial relatio
 
 The focus is not on conclusions, but on clarity: how infrastructure, access, and administrative boundaries coexist within the same spatial system.
 
-![Preview](/portfolio/data-newyork-subway-01.png)
+<div class="image-row1" style="--image-max-width: 780px; --image-max-width-mobile: 100%;">
+  <img src="/portfolio/data-newyork-subway-01.png" alt="NYC subway visualization preview">
+</div>
 
 This project visualize how subway infrastructure, pedestrian access, and policy boundaries intersect
 
@@ -74,8 +76,9 @@ What it reveals: trunk corridors, borough connectivity, redundancy vs fragility
 ## Access Field (Entrances → Walk Catchments)
 What it reveals: “real access” is entrances, not lines
 
-![Preview](/portfolio/data-newyork-subway-entrances-02.png)
-
+<div class="image-row1" style="--image-max-width: 300px; --image-max-width-mobile: 100%;">
+  <img src="/portfolio/data-newyork-subway-entrances-02.png">
+</div>
 
 ## Boundary Intersection (School Districts × Access Field)
 What it reveals: where policy boundaries don’t match mobility reality
