@@ -76,7 +76,7 @@ What it reveals: trunk corridors, borough connectivity, redundancy vs fragility
 ## Access Field (Entrances → Walk Catchments)
 What it reveals: “real access” is entrances, not lines
 
-<div class="image-row1" style="--image-max-width: 300px; --image-max-width-mobile: 100%;">
+<div class="image-row1" style="--image-max-width: 300px; --image-max-width-mobile: 100%; --image-align: start;">
   <img src="/portfolio/data-newyork-subway-entrances-02.png">
 </div>
 

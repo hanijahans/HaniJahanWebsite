@@ -366,7 +366,7 @@ align-items: flex-start;
 
 .image-row1 img {
   width: min(100%, var(--image-max-width, 900px));
-  margin-inline: auto;
+  justify-self: var(--image-align, center);
 }
 
 @media (max-width: 960px) {
