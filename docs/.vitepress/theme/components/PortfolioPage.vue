@@ -7,12 +7,16 @@ const props = defineProps<{
   title: string
   description?: string
   summary?: string
+  skills?: string | string[]
   youtubeId?: string
   items?: PortfolioItem[]
   heading?: string
 }>()
 
 const headingText = computed(() => props.heading ?? props.title)
+const skillsText = computed(() =>
+  Array.isArray(props.skills) ? props.skills.join(' • ') : props.skills
+)
 </script>
 
 <template>
@@ -21,6 +25,7 @@ const headingText = computed(() => props.heading ?? props.title)
       <h1>{{ headingText }}</h1>
       <p v-if="description" class="hero-description">{{ description }}</p>
       <p v-if="summary" class="hero-summary">{{ summary }}</p>
+      <p v-if="skillsText" class="hero-skills"><strong>Skills:</strong> {{ skillsText }}</p>
       <div v-if="youtubeId" class="hero-video">
         <YouTube :id="youtubeId" width="70%" />
       </div>
@@ -49,6 +54,10 @@ const headingText = computed(() => props.heading ?? props.title)
 .hero-summary {
   max-width: 100%;
   opacity: 0.9;
+}
+.hero-skills {
+  max-width: 100%;
+  opacity: 0.95;
 }
 .hero-video {
   margin-top: 8px;

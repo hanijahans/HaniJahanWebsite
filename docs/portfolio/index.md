@@ -12,6 +12,7 @@ import { houdini } from '/data/portfolio'
   title="PORTFOLIO"
   description="Scientific Visualization TD (Houdini)"
   summary="I build procedural Houdini systems that convert scientific and spatial data into simulations, structures, and visual understanding for research, analysis, and communication."
+  skills="Procedural Systems • Tool and pipeline development"
   youtube-id=""
   :items="houdini"
 />
