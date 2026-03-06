@@ -213,28 +213,6 @@ const extractFirstParagraph = (content: string): string | undefined => {
   return paragraphLines.join(' ').replace(/\s+/g, ' ')
 }
 
-const extractToolTags = (content: string): string[] | undefined => {
-  // Accept headings like:
-  // ## Tools & Tech
-  // ## Tools and Tech
-  // ## Tools
-  const sectionMatch = content.match(
-    /##\s*(Tools\s*(?:&|and)?\s*Tech|Tools)\s*\n([\s\S]*?)(?:\n##\s|$)/i
-  )
-
-  if (!sectionMatch) return undefined
-
-  const body = sectionMatch[2] ?? ''
-  const tags = body
-    .split(/\r?\n/)
-    .map((line) => line.trim())
-    .filter((line) => line.startsWith('- ') || line.startsWith('* '))
-    .map((line) => line.replace(/^[-*]\s+/, '').trim())
-    .filter(Boolean)
-
-  return tags.length ? tags : undefined
-}
-
 const parseArchiveDoc = (raw: string): ParsedArchiveDoc => {
   const { frontmatter, content } = parseFrontmatter(raw)
 
@@ -273,17 +251,12 @@ export const houdini: PortfolioItem[] = Object.entries(archiveDocs)
     const { data, content } = parseArchiveDoc(raw)
 
     const firstImage = content.match(/!\[[^\]]*\]\(([^)]+)\)/)?.[1]
-    const tagsFromContent = extractToolTags(content)
-
     const description =
       data.shortDescription ||
       data.description ||
       extractFirstParagraph(content)
 
-    const tags =
-      data.tags ||
-      tagsFromContent ||
-      (data.category ? [data.category] : undefined)
+    const tags = data.tags
 
     return {
       title: data.title || toTitle(slug),
