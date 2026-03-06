@@ -21,23 +21,28 @@ videoEmbed: "https://www.youtube.com/embed/IbOzfrEB_xQ?autoplay=1&mute=1&loop=1&
   allowfullscreen
 ></iframe>
 
-A Houdini building system that can generate architecture 100% procedurally, while also supporting modular kits for walls, windows, doors, and facade details.
+A Houdini-based building system designed to generate architecture quickly while preserving a consistent visual language. The generator works as a fully procedural tool, or as a hybrid setup that combines rules with artist-made modular kits.
 
-## Overview
-The tool creates complete buildings from a compact set of controls such as footprint, floor count, floor height, and facade rhythm. It can be used as a fully procedural generator for rapid exploration, or as a hybrid workflow that snaps and distributes artist-made modular assets.
+## Problem
+Artists needed a way to create large numbers of city buildings quickly without losing stylistic consistency. Building every structure by hand was too slow for iteration-heavy world building.
+
+## Approach
+I built a procedural Houdini generator that creates complete buildings from a compact set of controls: footprint, floor count, floor height, facade rhythm, and window spacing.
+
+The system supports two workflows:
+- **Fully procedural** for fast exploration and high-volume variation.
+- **Hybrid modular** that snaps and distributes artist-created walls, windows, doors, and facade pieces for art-directed results.
 
 ![Preview](/portfolio/modular-building.png)
 
-The system outputs game-ready geometry and can generate large numbers of building variations from a small modular kit.
+The output is game-ready geometry suitable for import into real-time pipelines.
 
-## Features
-- Fully procedural massing and floor generation
-- Optional modular asset integration for walls, windows, and entrances
-- Parameterized facade layouts and window spacing
-- Fast iteration for multiple building styles from one setup
-
-## Tools & Tech
+## Tools
 - Houdini
-- Procedural modeling
-- Modular environment workflows
-- Engine-ready outputs
+- Python
+- Unreal Engine
+
+## Result
+- Significantly faster building creation compared with manual workflows
+- Hundreds of coherent building variations generated from a compact modular kit
+- Better iteration speed for technical artists and environment teams
