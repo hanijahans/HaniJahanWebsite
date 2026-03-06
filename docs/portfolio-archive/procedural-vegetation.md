@@ -12,10 +12,13 @@ videoEmbed: "https://www.youtube.com/embed/53yyat49Ru4?autoplay=1&mute=1&loop=1&
 # Procedural Vegetation
 ![Preview](/portfolio/procedural-vegetation.png)
 
-A Houdini-based procedural vegetation workflow for building stylized environments quickly while keeping artistic control.
+A Houdini-based procedural vegetation workflow for building stylized environments quickly while preserving art direction.
 
-## Procedural Grass
-This setup generates layered grass with variation in height, density, scale, and clumping, making it easy to art-direct patchy ground or dense fields.
+## Problem
+Hand-placing vegetation in stylized scenes is slow, hard to iterate on, and often inconsistent across large spaces. The challenge was to create vegetation that feels natural while still being highly controllable for composition, readability, and gameplay-friendly paths.
+
+## Approach
+I built a modular procedural system in Houdini with two connected workflows:
 
 <iframe
   style="width: 100%; aspect-ratio: 16 / 9; height: auto;"
@@ -27,8 +30,9 @@ This setup generates layered grass with variation in height, density, scale, and
   allowfullscreen
 ></iframe>
 
-## Path-Based Environment Scattering
-A second setup combines path generation with procedural scattering to place grass, rocks, and trees around walkable routes for fast diorama and level-blockout workflows.
+1. **Procedural Grass Generation**
+   - Layered grass generation with controls for density, height, clumping, scale, and patch breakup.
+   - Artist-friendly parameters for rapidly switching between sparse fields, overgrown areas, and curated hero zones.
 
 <iframe
   style="width: 100%; aspect-ratio: 16 / 9; height: auto;"
@@ -40,8 +44,15 @@ A second setup combines path generation with procedural scattering to place gras
   allowfullscreen
 ></iframe>
 
-## Tools & Tech
+2. **Path-Based Environment Scattering**
+   - A path-driven setup that uses curves and masks to scatter grass, rocks, and trees around walkable routes.
+   - Supports fast blockout and diorama development by combining predictable placement with organic variation.
+
+## Tools
 - Houdini
-- Procedural scattering
-- Path-driven masks
-- Stylized environment workflows
+- Procedural scattering systems
+- Path-driven masks and curve workflows
+- Stylized environment art workflows
+
+## Result
+The toolkit significantly reduced scene assembly time while improving consistency and visual quality. It enabled fast iteration from layout to final look, making it practical to generate stylized environments that still feel handcrafted.
