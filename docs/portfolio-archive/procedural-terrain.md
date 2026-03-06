@@ -4,6 +4,7 @@ description: Terrain generator with flattening, and slope-aware scattering.
 category: Technical Art
 categoryOrder: 5
 order: 1
+tags: [Houdini, Procedural, Terrain]
 ---
 
 # Procedural Terrain System

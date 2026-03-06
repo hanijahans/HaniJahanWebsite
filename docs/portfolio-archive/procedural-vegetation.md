@@ -4,6 +4,7 @@ description: Procedural vegetation toolkit for stylized environments with contro
 category: Technical Art
 categoryOrder: 5
 order: 2
+tags: [Houdini, Procedural, Vegetation]
 cover: "/portfolio/procedural-vegetation.png"
 mediaPreview: "hover"
 videoEmbed: "https://www.youtube.com/embed/53yyat49Ru4?autoplay=1&mute=1&loop=1&playlist=TkJvMCo8u10&rel=0"
