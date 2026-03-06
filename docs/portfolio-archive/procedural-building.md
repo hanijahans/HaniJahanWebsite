@@ -4,7 +4,7 @@ description: A procedural building generator that can run fully procedural or bl
 category: Technical Art
 categoryOrder: 5
 order: 3
-cover: "/portfolio/procedural-building.png"
+cover: "/portfolio/modular-building.png"
 mediaPreview: "hover"
 videoEmbed: "https://www.youtube.com/embed/IbOzfrEB_xQ?autoplay=1&mute=1&loop=1&playlist=IbOzfrEB_xQ&rel=0"
 ---
