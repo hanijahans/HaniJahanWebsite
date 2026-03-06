@@ -11,7 +11,7 @@ videoEmbed: "https://www.youtube.com/embed/Ez4Oh8gTc3U?autoplay=1&mute=1&loop=1&
 
 # On-Demand Terrain Streaming
 
-I built this workflow to turn real-world map data into playable terrain sectors in Unity, with a focus on speed, geospatial accuracy, and iterative world-building.
+I built this workflow to turn real-world map data into terrain sectors in Unity, with a focus on speed, geospatial accuracy, and iterative world-building.
 
 <iframe
   style="width: 100%; aspect-ratio: 16 / 9; height: auto;"
