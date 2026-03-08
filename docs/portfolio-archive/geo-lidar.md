@@ -1,5 +1,5 @@
 ---
-title: LiDAR Visualization
+title: LiDAR (Point Cloud) Processing
 description: 
 category: Geospatial
 categoryOrder: 1
@@ -7,12 +7,13 @@ order: 2
 cover: "/portfolio/data-lidar-pc-01.png"
 ---
 
-# LiDAR Visualization
+# Procedural Processing of LiDAR Point Clouds
 This project explores a procedural workflow for processing LiDAR datasets and reconstructing terrain environments from raw point cloud data.
 
 <div class="image-row1" style="--image-max-width: 780px; --image-max-width-mobile: 100%;">
   <img src="/portfolio/data-lidar-pc-01.png">
 </div>
+image: Raw LiDAR Point Cloud
 
 The dataset used in this experiment comes from the SwissSurface3D LiDAR dataset provided by Swisstopo, which contains high-resolution airborne laser scanning data covering Switzerland.
 
@@ -31,19 +32,11 @@ The dataset includes:
 
 The LiDAR processing pipeline used in this project follows a series of procedural steps.
 
-Raw LiDAR dataset  
-        ↓  
-Point filtering and classification  
-        ↓  
-Ground extraction  
-        ↓  
-Heightfield generation (DTM)  
-        ↓  
-Semantic segmentation  
-        ↓  
-Environment reconstruction  
-        ↓  
-Simulation / voxel representation  
+The following diagram illustrates the procedural pipeline used to transform raw LiDAR data into structured terrain and environment representations. 
+
+<div class="image-row1" style="--image-max-width: 150px; --image-max-width-mobile: 100%;">
+  <img src="/diagrams/data-lidar-pipeline-01.png">
+</div>
 
 Each stage transforms the dataset into a more structured representation that can be used in simulation, visualization, or procedural generation systems.
 
@@ -52,6 +45,12 @@ Each stage transforms the dataset into a more structured representation that can
 <div class="image-row1" style="--image-max-width: 780px; --image-max-width-mobile: 100%;">
   <img src="/portfolio/data-lidar-pc-02-colored.png">
 </div>
+image: Filtering
+
+- water → blue
+- terrain → brown
+- vegetation → green
+- structures → yellow
 
 The point cloud is classified into semantic categories including:
 - water
@@ -64,6 +63,7 @@ The point cloud is classified into semantic categories including:
 <div class="image-row1" style="--image-max-width: 780px; --image-max-width-mobile: 100%;">
   <img src="/portfolio/data-lidar-pc-04-hf.png">
 </div>
+image: Surface Reconstruction (Height Field)
 
 This image shows the terrain heightfield reconstructed from LiDAR data.
 
