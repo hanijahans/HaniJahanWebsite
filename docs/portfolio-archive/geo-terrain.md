@@ -1,6 +1,6 @@
 ---
-title: On-Demand Terrain Streaming
-description: Streams and assembles terrain tiles on demand
+title: Mapbox On-Demand Terrain Streaming
+description: Streams, assembles, and geo-aligns terrain tiles on demand for rapid world-building
 category: Geospatial
 categoryOrder: 1
 order: 1
@@ -9,7 +9,7 @@ mediaPreview: "hover"
 videoEmbed: "https://www.youtube.com/embed/Ez4Oh8gTc3U?autoplay=1&mute=1&loop=1&playlist=GBCFRYMkSrY&rel=0"
 ---
 
-# On-Demand Terrain Streaming
+# Mapbox On-Demand Terrain Streaming
 
 I built this workflow to turn real-world map data into terrain sectors in Unity, with a focus on speed, geospatial accuracy, and iterative world-building.
 
@@ -39,6 +39,8 @@ Doing this by hand was too slow and error-prone when building many sectors.
 ## Approach
 
 I created a Unity Editor tool that behaves like an interactive GIS panel inside the engine:
+
+Mapbox tool → automated DEM download → Houdini → terrain generation → Unity / Unreal Terrain
 
 - **Interactive map navigation:** pan, zoom, and click to get precise latitude/longitude + tile IDs.
 - **Tile intelligence:** 3x3 neighbor lookup, cache management, and parent/child tile fallback while streaming.
