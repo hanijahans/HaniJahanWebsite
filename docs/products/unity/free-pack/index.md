@@ -98,7 +98,7 @@ Join the HJD Discord to:
 - Ask questions & get support  
 - See upcoming tools and packs  
 
-👉 [discord.gg/7pk5Je9bFT](https://discord.gg/7pk5Je9bFT)  
+👉 [discord.gg/xpcfCyaycx](https://discord.gg/xpcfCyaycx)  
 
 **More Info & Contact:**  
 [Contact Page](https://www.hanijahan.com/contact)
