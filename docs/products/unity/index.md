@@ -45,7 +45,7 @@ A simple index of Unity Asset Store packages and product documentation from Hani
   gap: 0.75rem;
   padding: 1rem;
   color: var(--vp-c-text-1);
-  text-decoration: none;
+  text-decoration: none !important;
   background: var(--vp-c-bg-soft);
   border: 1px solid var(--vp-c-divider);
   border-radius: 16px;
@@ -53,6 +53,7 @@ A simple index of Unity Asset Store packages and product documentation from Hani
 }
 
 .product-card:hover {
+  text-decoration: none !important;
   border-color: var(--vp-c-brand-1);
   transform: translateY(-2px);
 }
@@ -77,6 +78,10 @@ A simple index of Unity Asset Store packages and product documentation from Hani
 .product-card strong {
   font-size: 1.05rem;
   line-height: 1.3;
+}
+
+.product-card :is(strong, p, span) {
+  text-decoration: none !important;
 }
 
 .product-card p {
