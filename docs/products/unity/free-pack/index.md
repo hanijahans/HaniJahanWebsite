@@ -9,13 +9,13 @@ outline: deep
 <!-- Add a header section with the link and preview images -->
 
 <p align="center">
-  <a href="https://assetstore.unity.com/packages/3d/environments/lowpoly-platformer-kit-free-modular-stylized-blocks-319018" target="_blank">
-    <img src="/products/assets/platformer-kit-header.png" alt="Stylized Blocks Pack" width="800">
+  <a href="https://assetstore.unity.com/packages/3d/319018" target="_blank">
+    <img src="/portfolio/unity-asset-platformer-kit-01.png" alt="Stylized Blocks Pack" width="800">
   </a>
 </p>
 
 <p align="center">
-  <a href="https://assetstore.unity.com/packages/3d/environments/lowpoly-platformer-kit-free-modular-stylized-blocks-319018" target="_blank">
+  <a href="https://assetstore.unity.com/packages/3d/319018" target="_blank">
     <strong>🟢 View on Unity Asset Store</strong>
   </a>
 </p>
