@@ -12,6 +12,10 @@ const open = (event) => {
 
   if (!target.closest('.vp-doc')) return
 
+  // Keep linked card images (for example portfolio and product cards) acting as links
+  // instead of opening the global image viewer.
+  if (target.closest('a')) return
+
   imgSrc.value = target.dataset.originalSrc || target.getAttribute('src') || target.src
   imgAlt.value = target.alt || 'Expanded view'
   isOpen.value = true
