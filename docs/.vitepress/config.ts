@@ -8,6 +8,25 @@ const socialPreviewImage = `${siteUrl}/hjd/social-preview.jpg`
 const configDir = dirname(fileURLToPath(import.meta.url))
 const portfolioImageVariants = loadPortfolioImageVariants()
 
+const navItems = [
+  { text: 'Portfolio', link: '/portfolio/' },
+  {
+    text: 'Products',
+    items: [
+      // { text: 'Gumroad', link: '/genomo/' },
+      { text: 'Unity Assets', link: '/products/unity/' },
+    ],
+  },
+  // {
+  //   text: 'Labs',
+  //   items: [
+  //     { text: 'Genomo', link: '/genomo/' },
+  //     { text: 'GeoNode', link: '/geonode/' },
+  //     { text: 'WorldLattice 2D', link: '/worldlattice-2d/' },
+  //   ],
+  // },
+  { text: 'Contact', link: '/contact/' },
+]
 
 function loadPortfolioImageVariants() {
   const manifestPath = resolve(configDir, '../data/portfolio-image-variants.ts')
@@ -282,17 +301,4 @@ const standaloneSitemapUrls = [
   `${siteUrl}/apps/genomo`,
   `${siteUrl}/apps/geonode`,
   `${siteUrl}/apps/worldlattice-2d`,
-]
-
-const navItems = [
-  { text: 'Portfolio', link: '/portfolio/' },
-  {
-    text: 'Labs',
-    items: [
-      { text: 'Genomo', link: '/genomo/' },
-      { text: 'GeoNode', link: '/geonode/' },
-      { text: 'WorldLattice 2D', link: '/worldlattice-2d/' },
-    ],
-  },
-  { text: 'Contact', link: '/contact/' },
 ]
