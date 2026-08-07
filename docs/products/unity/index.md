@@ -29,6 +29,13 @@ A simple index of Unity Asset Store packages and product documentation from Hani
     <strong>Stylized Water Shader Pack</strong>
     <p>Built-in and URP water shaders with foam, waves, ripples, edge highlights, presets, and demo scenes.</p>
   </a>
+
+  <a class="product-card" href="/products/unity/toon-shader-pack/">
+    <img src="/portfolio/shader-water-04.jpg" alt="Stylized Toon Shader Pack preview">
+    <span class="product-card__label">Shader Pack</span>
+    <strong>Stylized Toon Shader Pack</strong>
+    <p>Built-in and URP toon shaders with flexible shading sources, color modes, rim light, outlines, presets, and demo scenes.</p>
+  </a>
 </div>
 
 <style>
