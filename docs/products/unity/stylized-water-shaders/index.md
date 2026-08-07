@@ -1,136 +1,123 @@
 ---
-title: Stylized Water Shader Variants
-description: "External documentation for Built-in and URP stylized water shader variants for Unity."
+title: Stylized Water Shader Pack
+description: "Documentation for the Built-in and URP Stylized Water Shader Pack for Unity."
 outline: deep
 ---
 
-# Stylized Water Shader Variants
+# Stylized Water Shaders
 
 <p align="center">
-  <a href="https://assetstore.unity.com/packages/3d/324212" target="_blank">
-    <img src="/portfolio/unity-asset-stylized-water-shader-01.png" alt="Stylized Blocks Pack" width="800">
+  <a href="https://assetstore.unity.com/packages/vfx/shaders/stylized-water-shader-pack-urp-built-in-390566" target="_blank">
+    <img src="/portfolio/unity-asset-stylized-water-shader-01.png" alt="Stylized Water Shader Pack preview" width="800">
   </a>
 </p>
 
 <p align="center">
-  <a href="https://assetstore.unity.com/packages/3d/324212" target="_blank">
+  <a href="https://assetstore.unity.com/packages/vfx/shaders/stylized-water-shader-pack-urp-built-in-390566" target="_blank">
     <strong>🌊 View on Unity Asset Store</strong>
   </a>
 </p>
 
 ---
 
-Stylized Water Shader Variants includes ready-to-use water materials, demo scenes, a Built-in compatible handwritten ShaderLab shader, and URP Shader Graph variants for orthographic and perspective projects.
+The Stylized Water Shader Pack provides matching handwritten shaders for Unity's Built-in Render Pipeline and Universal Render Pipeline (URP), with configurable ripples, intersection foam, vertex waves, colors, opacity, and edge highlights.
 
-- [Documentation](#documentation)
-- [URP Setup Notes](#urp-setup-notes)
-- [Contact & License](#contact-license)
-- [What's New](#what-s-new-changelog)
+- [Requirements](#requirements)
+- [Quick Start](#quick-start)
+- [Controls](#controls)
+- [Camera Depth Setup](#camera-depth-setup)
+- [Troubleshooting](#troubleshooting)
+- [Known Limitations](#known-limitations)
+- [Support](#support)
+- [Changelog](#changelog)
 
-## Documentation
+## Requirements
 
-### Package Contents
+- Tested with Unity 2022.3 LTS and Unity 6.0 LTS.
+- Supports the Built-in Render Pipeline and URP. HDRP is not supported.
+- URP usage requires the Universal Render Pipeline package and an active Universal Render Pipeline Asset. The package does not automatically convert a Built-in project to URP.
+- Vertex waves require a subdivided mesh.
+- Intersection foam requires a camera depth texture.
 
-| Folder / Asset | Contents |
-| --- | --- |
-| `Materials/` | Ready-made material presets for the included water shaders. |
-| `Scenes/` | Demo scenes for Built-in and URP workflows. |
-| `Shaders/Handwritten_BuiltIn/` | Built-in Render Pipeline ShaderLab shader and compatibility notes. |
-| `Shaders/ShaderGraph_URP/` | URP Shader Graph assets and reusable subgraphs. |
-| `Textures/` | Water pattern texture used by the demo materials. |
-| Root folder | README, changelog, license terms, and third-party notices. |
+## Quick Start
 
-### Included Shader Options
+Paths in this guide are relative to `Assets/HaniJahanDesign/Shaders/StylizedWater/`.
 
-**`StylizedWater_WaveFoam`**
-- Built-in compatible handwritten ShaderLab shader.
-- Includes feature toggles for common stylized-water effects.
-- Supports vertex wave motion, depth fade, Fresnel, intersection foam, animated foam texture, and Voronoi or texture-based ripple controls.
+1. Open the demo scene matching your render pipeline:
+   - **Built-in:** `Scenes/Shaders_StylizedWater_Demo_BuiltIn.unity`
+   - **URP:** `Scenes/Shaders_StylizedWater_Demo_URP.unity`
+2. Assign a preset from `Materials/BuiltIn/` or `Materials/URP/` to a flat, subdivided mesh.
+3. Adjust the material in the custom material inspector.
+4. If you are using intersection foam, configure camera depth as described in [Camera Depth Setup](#camera-depth-setup).
 
-**`ShaderGraph_StylizedWater_Orthographic`**
-- URP Shader Graph setup for orthographic scenes.
-- Useful for top-down, isometric, and stylized scene presentations.
+To create a material from scratch, choose the shader matching your render pipeline from the material's **Shader** menu:
 
-**`ShaderGraph_StylizedWater_Perspective_Lit`**
-- URP Shader Graph setup for perspective scenes.
-- Designed for projects that need lit water and depth-based interaction effects.
+- `Hani Jahan Design/StylizedWater/Built-in`
+- `Hani Jahan Design/StylizedWater/URP`
 
----
+## Controls
 
-### Quick Start
+- **Water Surface:** Base and shallow height colors, opacity, and edge highlight.
+- **Surface Ripples:** Procedural Voronoi or a custom texture using its red channel, with color, scale, speed, strength, and sharpness controls.
+- **Intersection Foam:** A depth-based primary gradient with optional procedural bands or a scrolling texture using its red channel.
+- **Vertex Waves:** Height, scale, and speed. Waves move existing vertices and do not subdivide the mesh.
 
-1. Import the package into a Unity project.
-2. Open the demo scene that matches your render pipeline and camera style:
-   - **Built-in Render Pipeline:** open `Scenes/StylizedWater_Demo_BuiltIn`.
-   - **URP orthographic:** open `Scenes/StylizedWater_Demo_URP_Orthographic`.
-   - **URP perspective:** open `Scenes/StylizedWater_Demo_URP_Perspective`.
-3. Drag a water material from `Materials/` onto your water mesh.
-4. Adjust the exposed material properties for water color, foam, waves, ripples, depth fade, Fresnel, and transparency.
-5. For URP scenes, confirm the required render textures are enabled as described in the setup notes below.
+Negative speed values reverse the animation direction.
 
----
+## Camera Depth Setup
 
-### Render Pipeline Support
+Intersection foam requires camera depth. The other water features do not.
 
-| Render Pipeline | Support |
-| --- | --- |
-| Built-in Render Pipeline | Supported with the handwritten shader and Built-in materials in `Materials/Handwritten_BuiltIn/`. |
-| Universal Render Pipeline (URP) | Supported with Shader Graph shaders and URP materials in `Materials/ShaderGraph_URP/`. |
-| High Definition Render Pipeline (HDRP) | Not included or tested. |
+### Universal Render Pipeline
 
-### Technical Highlights
+Enable **Depth Texture** on the active Universal Render Pipeline Asset, or override the water camera's **Rendering > Depth Texture** setting to **On**. When the camera uses the pipeline setting, the active pipeline asset must have **Depth Texture** enabled.
 
-- Includes one Built-in compatible handwritten ShaderLab shader.
-- Includes URP Shader Graph variants for orthographic and perspective workflows.
-- Exposes controls for color, foam, waves, ripples, depth fade, Fresnel, transparency, and texture-driven water detail.
-- Includes reusable Shader Graph subgraphs and demo materials.
-- Supports depth fade and intersection foam where the render pipeline and camera settings provide depth data.
-- Includes material presets so teams can start from working water styles instead of configuring every property from scratch.
+### Built-in Render Pipeline
 
-## URP Setup Notes
+The camera that renders the water may request a depth texture. If needed, add the following component to each applicable camera, or make the equivalent request in existing camera code:
 
-The URP perspective water shader uses the camera depth texture to build depth fade and intersection foam around objects that enter the water. If foam appears in Scene View but is missing in Game View, the Game camera is usually not rendering a depth texture.
+```csharp
+using UnityEngine;
 
-Recommended setup for the demo scenes:
+[RequireComponent(typeof(Camera))]
+public sealed class WaterDepthTexture : MonoBehaviour
+{
+    private void OnEnable()
+    {
+        GetComponent<Camera>().depthTextureMode |= DepthTextureMode.Depth;
+    }
+}
+```
 
-1. Open the active URP Render Pipeline Asset and enable **Depth Texture**.
-2. If you do not want this globally, select the Game camera and set **Rendering > Depth Texture** to **On** instead of **Use Pipeline Settings**.
-3. Enable **Opaque Texture** as well when using the refractive water material.
-4. Confirm the intersecting objects render before the transparent water surface and are included in the camera culling mask.
+Using `|=` preserves depth modes requested by other effects. The shader only reads camera depth while **Intersection Foam** is enabled.
 
-Depth Texture drives foam and depth fade. Opaque Texture drives the screen-color sampling used by refraction.
+## Troubleshooting
 
-### Troubleshooting
+- **Pink material:** Use the shader matching the active render pipeline. For URP, configure the URP package and pipeline asset, then check shader compile errors in the Console.
+- **No foam:** Enable **Intersection Foam**, configure depth for the Game camera—not only the Scene view camera—and confirm that intersecting geometry is inside that camera's culling mask and writes depth. Transparent objects commonly do not write depth.
+- **No waves:** Enable **Vertex Waves**, increase **Height**, and use a sufficiently subdivided mesh.
+- **Incorrect texture patterns:** Custom ripple and foam textures use the red channel. Check their import and wrap settings, then adjust scale, speed, and strength.
 
-- **Pink material:** confirm the shader variant matches your render pipeline and that URP Shader Graph dependencies are available in URP projects.
-- **No intersection foam in Game View:** enable Depth Texture on the URP pipeline asset or on the Game camera.
-- **No refraction:** enable Opaque Texture for URP refraction materials.
-- **Sorting issues:** confirm intersecting meshes render before the transparent water surface and are included in the camera culling mask.
-- **Water too strong or too subtle:** tune foam, depth fade, Fresnel, wave, ripple, and transparency controls from the assigned material.
+## Known Limitations
 
-## Contact & License
+- Vertex waves displace existing mesh vertices; they do not add geometry. Low-density meshes can produce angular or barely visible waves.
+- Intersection foam depends on the camera depth texture. Transparent objects and other geometry that does not write to depth cannot produce reliable foam intersections.
+- The water is transparent, so overlapping transparent surfaces can exhibit Unity's usual transparency sorting artifacts.
 
-Created by: **Hani Jahan Design (HJD)**
+## Support
 
-**Community & Support:**  
-Join the HJD Discord to:  
-- Share feedback & ideas  
-- Ask questions & get support  
-- See upcoming tools and packs  
+**Publisher:** Hani Jahan Design
 
-👉 [discord.gg/xpcfCyaycx](https://discord.gg/xpcfCyaycx) 
+Use the support contact on this asset's Unity Asset Store publisher page, or join the [HJD Discord](https://discord.gg/xpcfCyaycx) for feedback and community help.
 
-Use the support contact configured on the Unity Asset Store publisher page for this asset. Use the license terms provided with the Unity Asset Store package for redistribution and project usage rights.
+## Changelog
 
-Thank you for using the **Hani Jahan Design – Stylized Water Shader Variants**. Keep creating! 💙
+### 1.0.0
 
-## What's New (Changelog)
-
-### 1.0.0 — Initial Release
-
-- Added Built-in compatible handwritten stylized water shader.
-- Added URP Shader Graph variants for orthographic and perspective scenes.
-- Added material presets for the included water shaders.
-- Added demo scenes for Built-in and URP workflows.
-- Added reusable Shader Graph subgraphs and water texture resources.
-- Added setup notes for Depth Texture, Opaque Texture, foam, depth fade, and refraction workflows.
+- Initial Unity Asset Store release.
+- Added matching handwritten shaders for the Built-in Render Pipeline and Universal Render Pipeline (URP).
+- Added height-based color, Fresnel edge highlights, procedural or textured surface ripples, depth-based intersection foam, and vertex waves.
+- Added five ready-to-use material presets and one demo scene for each supported render pipeline.
+- Added a shared HLSL implementation, a water pattern texture, and a custom material inspector for both shaders.
+- Added setup instructions, compatibility notes, troubleshooting guidance, and a package welcome window.
+- Tested with Unity 2022.3 LTS and Unity 6.0 LTS; HDRP is not included.

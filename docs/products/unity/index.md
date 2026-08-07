@@ -24,10 +24,10 @@ A simple index of Unity Asset Store packages and product documentation from Hani
   </a>
 
   <a class="product-card" href="/products/unity/stylized-water-shaders/">
-    <img src="/portfolio/unity-asset-stylized-water-shader-01.png" alt="Stylized Water Shader Variants preview">
+    <img src="/portfolio/unity-asset-stylized-water-shader-01.png" alt="Stylized Water Shader Pack preview">
     <span class="product-card__label">Shader Pack</span>
-    <strong>Stylized Water Shader Variants</strong>
-    <p>Built-in and URP water shader variants for stylized Unity scenes.</p>
+    <strong>Stylized Water Shader Pack</strong>
+    <p>Built-in and URP water shaders with foam, waves, ripples, edge highlights, presets, and demo scenes.</p>
   </a>
 </div>
 
